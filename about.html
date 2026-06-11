@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>about — aleksandra slahova</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -35,10 +32,13 @@
   }
   .about-intro em { color: var(--accent); }
   .about-portrait {
-    width: clamp(160px, 20vw, 300px);
-    -webkit-mask-image: linear-gradient(to bottom, black 76%, transparent 99%);
-    mask-image: linear-gradient(to bottom, black 76%, transparent 99%);
-    filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.5));
+    width: clamp(200px, 24vw, 360px);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+  .about-portrait img {
+    width: 100%;
+    display: block;
   }
   .about-meta { display: flex; gap: 28px; margin-top: 30px; flex-wrap: wrap; }
   @media (max-width: 860px) {
@@ -137,7 +137,7 @@
 <body data-screen-label="About page">
 
 <nav class="nav">
-  <a class="nav-logo" href="index.html">as<sup>®</sup></a>
+  <a class="nav-logo" href="index.html"><img src="assets/logo-on-dark.svg" alt="aleksandra slahova — logo"></a>
   <div class="nav-links">
     <a href="work.html">work</a>
     <a href="about.html" aria-current="page">about</a>
@@ -155,7 +155,7 @@
       <span class="label">( amsterdam, nl )</span>
     </div>
   </div>
-  <img class="about-portrait" src="assets/portrait-cutout.png" alt="Illustrated portrait of Aleksandra wearing headphones">
+  <div class="about-portrait"><img src="assets/portrait-photo.jpg" alt="Portrait of Aleksandra"></div>
 </header>
 
 <div class="stats" data-screen-label="Stats">
@@ -271,6 +271,11 @@
 <div class="grain"></div>
 
 <script src="shared.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
 
 </body>
 </html>

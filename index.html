@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>aleksandra slahova — digital designer</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -24,6 +21,7 @@
     --ink: #16131c;
     --muted: #6f6a7c;
     --line: rgba(22, 19, 28, 0.16);
+    cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='36'%20height='24'%3E%3Ctext%20x='18'%20y='17'%20text-anchor='middle'%20font-family='monospace'%20font-size='17'%20font-weight='700'%20fill='%239d7bff'%3E%3E%3C%3C/text%3E%3C/svg%3E") 18 12, auto;
     min-height: calc(100svh - 72px);
     position: relative;
     display: flex;
@@ -51,35 +49,20 @@
     color: var(--ink);
   }
   .hero-stack { margin-top: clamp(36px, 9vh, 130px); }
-  /* dark spinning-head portal — black video bg blends into the disc */
+  /* transparent spinning head — floats over the type */
   .hero-portal {
     position: absolute;
     left: 50%; top: 50%;
     transform: translate(-50%, -55%);
     z-index: 4;
-    width: clamp(200px, 26vw, 420px);
+    width: clamp(420px, 56vw, 980px);
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: #000;
-    overflow: hidden;
-    pointer-events: none;
-    box-shadow:
-      0 0 0 1px rgba(157, 123, 255, 0.28),
-      0 0 0 7px rgba(22, 19, 28, 0.04),
-      0 40px 90px -28px rgba(22, 19, 28, 0.45);
-  }
-  .hero-portal::after {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: 50%;
-    box-shadow: inset 0 0 60px 6px rgba(0, 0, 0, 0.55);
     pointer-events: none;
   }
-  .hero-portal video {
+  .hero-portal img {
     width: 100%; height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-    transform: scale(1.04);
   }
   .hero-anno {
     position: absolute;
@@ -122,7 +105,7 @@
 
   @media (max-width: 860px) {
     .anno-left, .anno-right, .hero-brax { display: none; }
-    .hero-portal { width: clamp(190px, 56vw, 320px); }
+    .hero-portal { width: clamp(300px, 78vw, 480px); }
   }
 
   /* ---------- peek strip ---------- */
@@ -162,12 +145,48 @@
     transition: color 200ms ease;
   }
   .teaser-cta:hover { color: var(--accent); }
+
+  /* no rule line over the selected-work header */
+  #work .section-head { border-top: none; padding-top: 0; }
+
+  /* cursor image trail — hero only */
+  .trail-img {
+    position: fixed;
+    left: 0; top: 0;
+    width: clamp(70px, 7vw, 110px);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35) rotate(var(--r, 0deg));
+    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 320ms ease;
+  }
+  .trail-img.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(var(--r, 0deg));
+  }
+  .trail-img.die {
+    opacity: 0;
+    transform: translate(-50%, -52%) scale(0.9) rotate(var(--r, 0deg));
+    transition: transform 480ms ease, opacity 480ms ease;
+  }
+
+  /* selected work — cards stack & overlap on scroll */
+  #work .project {
+    position: sticky;
+    top: 72px;
+    background: var(--bg);
+  }
+  @media (max-width: 860px) {
+    #work .project { position: static; }
+  }
 </style>
 </head>
 <body data-screen-label="Home">
 
 <nav class="nav">
-  <a class="nav-logo" href="index.html">as<sup>®</sup></a>
+  <a class="nav-logo" href="index.html"><img src="assets/logo.svg" alt="aleksandra slahova — logo"></a>
   <div class="nav-links">
     <a href="work.html">work</a>
     <a href="about.html">about</a>
@@ -180,7 +199,7 @@
   <div class="hero-stack">
     <span class="display hero-line-1">aleksandra</span>
     <div class="hero-portal">
-      <img src="assets/portrait-spin.gif" alt="3D portrait of Aleksandra wearing headphones">
+      <img src="assets/portrait-spin.gif" alt="Rotating 3D portrait of Aleksandra wearing headphones">
     </div>
     <span class="display hero-line-2">slahova<sup>®</sup></span>
     <span class="serif-note anno-role">digital designer</span>
@@ -209,7 +228,7 @@ instagram — @aleeeksanndraa</div>
   <section class="section" id="work" data-screen-label="Work">
     <div class="section-head" data-reveal>
       <h2 class="display">selected work</h2>
-      <span class="serif-note">(01–05)</span>
+      <span class="serif-note">&lt;01–05&gt;</span>
       <span class="label">2021 — 2026</span>
     </div>
 
@@ -229,7 +248,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <image-slot id="home-tictaps" class="v-app" shape="rounded" radius="14" placeholder="large app mockup"></image-slot>
+        <image-slot id="home-tictaps" class="v-app" shape="rect" placeholder="large app mockup"></image-slot>
       </div>
     </article>
 
@@ -249,7 +268,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <image-slot id="home-recruitflow" class="v-wide" shape="rounded" radius="10" placeholder="large dashboard mockup"></image-slot>
+        <image-slot id="home-recruitflow" class="v-wide" shape="rect" placeholder="large dashboard mockup"></image-slot>
       </div>
     </article>
 
@@ -269,7 +288,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <image-slot id="home-capitallink" class="v-wide" shape="rounded" radius="10" placeholder="large laptop / website mockup"></image-slot>
+        <image-slot id="home-capitallink" class="v-wide" shape="rect" placeholder="large laptop / website mockup"></image-slot>
       </div>
     </article>
 
@@ -289,7 +308,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <image-slot id="home-landing" class="v-stack" shape="rounded" radius="10" placeholder="stacked landing page previews"></image-slot>
+        <image-slot id="home-landing" class="v-stack" shape="rect" placeholder="stacked landing page previews"></image-slot>
       </div>
     </article>
 
@@ -309,7 +328,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <image-slot id="home-archive" class="v-square" shape="rounded" radius="10" placeholder="poster / logo collage"></image-slot>
+        <image-slot id="home-archive" class="v-square" shape="rect" placeholder="poster / logo collage"></image-slot>
       </div>
     </article>
   </section>
@@ -343,6 +362,52 @@ instagram — @aleeeksanndraa</div>
 
 <script src="image-slot.js"></script>
 <script src="shared.js"></script>
+<script>
+// cursor image trail — hero section only
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero) { return; }
+  // poster work — swap or extend anytime
+  var srcs = [
+    'assets/trail/trail-1.jpg',
+    'assets/trail/trail-2.jpg',
+    'assets/trail/trail-3.jpg',
+    'assets/trail/trail-4.jpg',
+    'assets/trail/trail-5.jpg',
+    'assets/trail/trail-6.jpg',
+    'assets/trail/trail-7.jpg'
+  ];
+  srcs.forEach(function (s) { var p = new Image(); p.src = s; });
+  var i = 0, lastX = null, lastY = null, MIN_DIST = 55;
+  hero.addEventListener('mousemove', function (e) {
+    if (document.body.getAttribute('data-motion') === 'off') { return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+    if (lastX !== null) {
+      var dx = e.clientX - lastX, dy = e.clientY - lastY;
+      if (dx * dx + dy * dy < MIN_DIST * MIN_DIST) { return; }
+    }
+    lastX = e.clientX; lastY = e.clientY;
+    var img = document.createElement('img');
+    img.className = 'trail-img';
+    img.alt = '';
+    img.src = srcs[i++ % srcs.length];
+    img.style.left = e.clientX + 'px';
+    img.style.top = e.clientY + 'px';
+    img.style.setProperty('--r', (Math.random() * 14 - 7).toFixed(1) + 'deg');
+    hero.appendChild(img);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { img.classList.add('show'); });
+    });
+    setTimeout(function () { img.classList.add('die'); }, 600);
+    setTimeout(function () { img.remove(); }, 1200);
+  });
+})();
+</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
 
 </body>
 </html>

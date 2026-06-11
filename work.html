@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>work — aleksandra slahova</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -24,12 +21,22 @@
   .page-head .label { margin-left: auto; }
   .work-list { padding: 0 clamp(20px, 3.5vw, 56px) clamp(56px, 8vw, 110px); }
   .work-list .project:first-child { border-top: 1px solid var(--line); }
+
+  /* cards stack & overlap on scroll — same as home */
+  .work-list .project {
+    position: sticky;
+    top: 72px;
+    background: var(--bg);
+  }
+  @media (max-width: 860px) {
+    .work-list .project { position: static; }
+  }
 </style>
 </head>
 <body data-screen-label="Work page">
 
 <nav class="nav">
-  <a class="nav-logo" href="index.html">as<sup>®</sup></a>
+  <a class="nav-logo" href="index.html"><img src="assets/logo-on-dark.svg" alt="aleksandra slahova — logo"></a>
   <div class="nav-links">
     <a href="work.html" aria-current="page">work</a>
     <a href="about.html">about</a>
@@ -61,7 +68,7 @@
       <span class="go">&gt;&lt; view case</span>
     </div>
     <div class="project-visual">
-      <image-slot id="work-tictaps" class="v-app" shape="rounded" radius="14" placeholder="large app mockup"></image-slot>
+      <image-slot id="work-tictaps" class="v-app" shape="rect" placeholder="large app mockup"></image-slot>
     </div>
   </article>
 
@@ -81,7 +88,7 @@
       <span class="go">&gt;&lt; view case</span>
     </div>
     <div class="project-visual">
-      <image-slot id="work-recruitflow" class="v-wide" shape="rounded" radius="10" placeholder="large dashboard mockup"></image-slot>
+      <image-slot id="work-recruitflow" class="v-wide" shape="rect" placeholder="large dashboard mockup"></image-slot>
     </div>
   </article>
 
@@ -101,7 +108,7 @@
       <span class="go">&gt;&lt; view case</span>
     </div>
     <div class="project-visual">
-      <image-slot id="work-capitallink" class="v-wide" shape="rounded" radius="10" placeholder="large laptop / website mockup"></image-slot>
+      <image-slot id="work-capitallink" class="v-wide" shape="rect" placeholder="large laptop / website mockup"></image-slot>
     </div>
   </article>
 
@@ -121,7 +128,7 @@
       <span class="go">&gt;&lt; view case</span>
     </div>
     <div class="project-visual">
-      <image-slot id="work-landing" class="v-stack" shape="rounded" radius="10" placeholder="stacked landing page previews"></image-slot>
+      <image-slot id="work-landing" class="v-stack" shape="rect" placeholder="stacked landing page previews"></image-slot>
     </div>
   </article>
 
@@ -141,7 +148,7 @@
       <span class="go">&gt;&lt; view case</span>
     </div>
     <div class="project-visual">
-      <image-slot id="work-archive" class="v-square" shape="rounded" radius="10" placeholder="poster / logo collage"></image-slot>
+      <image-slot id="work-archive" class="v-square" shape="rect" placeholder="poster / logo collage"></image-slot>
     </div>
   </article>
 </main>
@@ -162,6 +169,11 @@
 
 <script src="image-slot.js"></script>
 <script src="shared.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
 
 </body>
 </html>
