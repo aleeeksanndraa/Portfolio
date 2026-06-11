@@ -134,6 +134,30 @@
   .recog-row:last-child { border-bottom: 1px solid var(--line); }
   .recog-row .serif-note { font-size: clamp(19px, 2vw, 28px); }
   .recog-row .label { margin-left: auto; }
+
+  /* cv download */
+  .cv-row {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    display: grid;
+    gap: 16px;
+    justify-items: start;
+  }
+  .cv-btn {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    font-size: clamp(36px, 6vw, 96px);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.18em;
+    transition: color 200ms ease;
+  }
+  .cv-btn .arr { color: var(--accent); transition: transform 200ms ease; display: inline-block; }
+  .cv-btn:hover { color: var(--accent); }
+  .cv-btn:hover .arr { transform: translateY(5px); }
 </style>
 </head>
 <body data-screen-label="About page">
@@ -251,6 +275,13 @@
       </div>
     </div>
   </section>
+
+  <section class="section" data-screen-label="CV download">
+    <div class="cv-row" data-reveal>
+      <span class="label">curriculum vitae <span class="acc">/</span> pdf · ready to download</span>
+      <a class="cv-btn" href="assets/Aleksandra_Slahova_CV_2026.pdf" download="Aleksandra_Slahova_CV_2026.pdf">download cv <span class="arr">↓</span></a>
+    </div>
+  </section>
 </main>
 
 <div class="case-next" style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 28px clamp(20px, 3.5vw, 56px);">
@@ -262,9 +293,14 @@
   <div data-reveal>
     <div class="label" style="margin-bottom: 18px">have a project in mind<span class="acc">?</span></div>
     <a class="footer-mail" href="mailto:aleksandraslahova88@gmail.com">aleksandraslahova88<span class="serif-note">@</span>gmail.com</a>
+    <div class="soc-links">
+      <a class="soc" href="https://www.linkedin.com/in/aleksandra-slahova-461826264/" target="_blank" rel="noopener"><span class="soc-glyph">in</span>linkedin</a>
+      <a class="soc" href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6"></rect><circle cx="12" cy="12" r="4.4"></circle><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"></circle></svg>instagram</a>
+    </div>
   </div>
   <div class="footer-row label">
     <a href="https://www.linkedin.com/in/aleksandra-slahova-461826264/" target="_blank" rel="noopener">linkedin ↗</a>
+    <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram ↗</a>
     <span>amsterdam, nl</span>
     <span>© 2026 aleksandra slahova</span>
   </div>
