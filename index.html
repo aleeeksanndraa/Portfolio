@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aleksandra slahova — digital designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---------- light hero island (rest of page is dark) ---------- */
+  body > .nav {
+    position: absolute;
+    --ink: #16131c;
+    --muted: #6f6a7c;
+  }
+  body > .nav::before { display: none; }
+  .hero {
+    background: #ffffff;
+    --ink: #16131c;
+    --muted: #6f6a7c;
+    --line: rgba(22, 19, 28, 0.16);
+    min-height: calc(100svh - 72px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 110px clamp(20px, 3.5vw, 56px) 24px;
+    overflow: hidden;
+  }
+  .hero-stack {
+    position: relative;
+    text-align: center;
+  }
+  .hero-stack .display {
+    color: var(--accent);
+    font-size: clamp(48px, 12vw, 232px);
+    line-height: 0.9;
+    display: block;
+  }
+  .hero-line-1 { position: relative; z-index: 1; }
+  .hero-line-2 { position: relative; z-index: 3; margin-top: -0.06em; }
+  .hero-line-2 sup {
+    font-size: 0.22em;
+    vertical-align: 2.2em;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  .hero-stack { margin-top: clamp(36px, 9vh, 130px); }
+  .hero-portrait {
+    position: absolute;
+    left: 50%; bottom: -0.08em;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: clamp(200px, 27.5vw, 450px);
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 99%);
+    mask-image: linear-gradient(to bottom, black 78%, transparent 99%);
+  }
+  .hero-anno {
+    position: absolute;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    z-index: 4;
+    white-space: pre-line;
+  }
+  .hero-anno .acc { color: var(--accent); }
+  .anno-left { left: clamp(20px, 4vw, 64px); top: 21%; text-align: left; }
+  .anno-right { right: clamp(20px, 4vw, 64px); top: 21%; text-align: right; }
+  .anno-role {
+    display: block;
+    position: relative;
+    z-index: 4;
+    margin-top: 26px;
+    font-size: clamp(20px, 2.2vw, 34px);
+    color: var(--ink);
+  }
+  .anno-role::before { content: "( "; color: var(--muted); }
+  .anno-role::after { content: " )"; color: var(--muted); }
+  .hero-foot {
+    margin-top: auto;
+    padding-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 4;
+  }
+  .hero-clients { max-width: 60ch; white-space: pre-line; }
+  .scroll-hint { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+  .scroll-hint .arr { display: inline-block; animation: bob 1.8s ease-in-out infinite; color: var(--accent); }
+  @keyframes bob { 50% { transform: translateY(5px); } }
+  body[data-motion="off"] .scroll-hint .arr { animation: none; }
+  @media (prefers-reduced-motion: reduce) { .scroll-hint .arr { animation: none; } }
+
+  @media (max-width: 860px) {
+    .anno-left, .anno-right, .hero-brax { display: none; }
+    .hero-portrait { width: clamp(180px, 52vw, 300px); }
+  }
+
+  /* ---------- peek strip ---------- */
+  .peek {
+    height: 72px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(20px, 3.5vw, 56px);
+    background: var(--bg-2);
+  }
+  .peek .display { font-size: 22px; }
+  .peek .display .serif-note { color: var(--accent); font-size: 0.9em; }
+
+  /* ---------- work media shapes ---------- */
+  .media-phone { width: clamp(140px, 16vw, 230px); aspect-ratio: 9 / 19; }
+  .media-wide { flex: 1; aspect-ratio: 16 / 9.5; min-width: 0; }
+  .media-half { flex: 1; aspect-ratio: 4 / 3.1; min-width: 0; }
+
+  /* ---------- about teaser ---------- */
+  .teaser {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 1100px;
+  }
+  .teaser-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(30px, 4.4vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  .teaser-quote em { font-style: italic; color: var(--accent); }
+  .teaser-cta {
+    font-family: var(--mono); font-size: 14px; color: var(--muted);
+    transition: color 200ms ease;
+  }
+  .teaser-cta:hover { color: var(--accent); }
+</style>
+</head>
+<body data-screen-label="Home">
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">as<sup>®</sup></a>
+  <div class="nav-links">
+    <a href="work.html">work</a>
+    <a href="about.html">about</a>
+    <a href="#contact">contact</a>
+  </div>
+  <div class="nav-meta">amsterdam, nl — 52.37°n</div>
+</nav>
+
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-stack">
+    <span class="display hero-line-1">aleksandra</span>
+    <img class="hero-portrait" src="assets/portrait-cutout.png" alt="" style="display: none">
+    <video class="hero-portrait" src="assets/portrait-spin.mp4" poster="assets/portrait-poster.png" autoplay loop muted playsinline aria-label="Rotating illustrated portrait of Aleksandra wearing headphones"></video>
+    <span class="display hero-line-2">slahova<sup>®</sup></span>
+    <span class="serif-note anno-role">digital designer</span>
+  </div>
+
+  <div class="hero-anno anno-left">&lt; ui/ux · brand ·
+motion · web &gt;</div>
+  <div class="hero-anno anno-right">&lt; 4+ yrs —
+amsterdam, nl &gt;</div>
+
+  <div class="hero-foot">
+    <div class="label hero-clients">notes / design, motion &amp; tiny visual obsessions
+instagram — @aleeeksanndraa</div>
+    <a class="label scroll-hint" href="#work">selected work <span class="arr">↓</span></a>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>product design <i>&gt;&lt;</i></span><span>ui/ux <i>&gt;&lt;</i></span><span>design systems <i>&gt;&lt;</i></span><span>brand identity <i>&gt;&lt;</i></span><span>typography <i>&gt;&lt;</i></span><span>motion <i>&gt;&lt;</i></span><span>webflow &amp; framer <i>&gt;&lt;</i></span><span>responsive web <i>&gt;&lt;</i></span>
+    <span>product design <i>&gt;&lt;</i></span><span>ui/ux <i>&gt;&lt;</i></span><span>design systems <i>&gt;&lt;</i></span><span>brand identity <i>&gt;&lt;</i></span><span>typography <i>&gt;&lt;</i></span><span>motion <i>&gt;&lt;</i></span><span>webflow &amp; framer <i>&gt;&lt;</i></span><span>responsive web <i>&gt;&lt;</i></span>
+  </div>
+</div>
+
+<main>
+  <section class="section" id="work" data-screen-label="Work">
+    <div class="section-head" data-reveal>
+      <h2 class="display">selected work</h2>
+      <span class="serif-note">(01–03)</span>
+      <span class="label">2022 — 2026</span>
+    </div>
+
+    <article class="project" data-reveal data-screen-label="Project Tictaps">
+      <a class="project-link" href="work.html#tictaps" aria-label="Tictaps case study"></a>
+      <div class="project-num">01</div>
+      <div class="project-body">
+        <div class="project-top">
+          <h3 class="project-title">tictaps <span class="serif-note">app redesign</span></h3>
+          <div class="project-tags">
+            <span class="label">ui/ux</span>
+            <span class="label">design system</span>
+            <span class="label acc" style="color: var(--accent)">2026</span>
+          </div>
+        </div>
+        <p class="project-desc">Full UI redesign of a mobile gaming app ahead of its official launch — 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
+        <div class="project-media">
+          <image-slot id="tictaps-phone-1" class="media-phone" shape="rounded" radius="28" placeholder="app screen 01"></image-slot>
+          <image-slot id="tictaps-phone-2" class="media-phone" shape="rounded" radius="28" placeholder="app screen 02"></image-slot>
+          <image-slot id="tictaps-wide" class="media-wide" shape="rounded" radius="6" placeholder="design system / components"></image-slot>
+        </div>
+        <span class="go">&gt;&lt; view case</span>
+      </div>
+    </article>
+
+    <article class="project" data-reveal data-screen-label="Project SVG Group">
+      <a class="project-link" href="work.html#svg-group" aria-label="SVG Group case study"></a>
+      <div class="project-num">02</div>
+      <div class="project-body">
+        <div class="project-top">
+          <h3 class="project-title">svg group <span class="serif-note">startup websites</span></h3>
+          <div class="project-tags">
+            <span class="label">web</span>
+            <span class="label">ui systems</span>
+            <span class="label" style="color: var(--accent)">2024–25</span>
+          </div>
+        </div>
+        <p class="project-desc">End-to-end digital design for 10+ startups across fintech, real estate, hospitality, and education — responsive sites, modular UI systems, and campaigns at a pace of three projects a month.</p>
+        <div class="project-media">
+          <image-slot id="svg-wide" class="media-wide" shape="rounded" radius="6" placeholder="website hero / desktop"></image-slot>
+          <image-slot id="svg-half" class="media-half" shape="rounded" radius="6" placeholder="mobile / detail shot"></image-slot>
+        </div>
+        <span class="go">&gt;&lt; view case</span>
+      </div>
+    </article>
+
+    <article class="project" data-reveal data-screen-label="Project Independent">
+      <a class="project-link" href="work.html#independent" aria-label="Independent practice case study"></a>
+      <div class="project-num">03</div>
+      <div class="project-body">
+        <div class="project-top">
+          <h3 class="project-title">independent <span class="serif-note">practice</span></h3>
+          <div class="project-tags">
+            <span class="label">brand</span>
+            <span class="label">web</span>
+            <span class="label" style="color: var(--accent)">2021–24</span>
+          </div>
+        </div>
+        <p class="project-desc">Websites, brand identities, and campaigns for 15 clients across the UK, Netherlands, Italy, Spain, and Bali — fintech to wellness, with a high rate of repeat referrals.</p>
+        <div class="project-media">
+          <image-slot id="ind-half-1" class="media-half" shape="rounded" radius="6" placeholder="brand identity"></image-slot>
+          <image-slot id="ind-half-2" class="media-half" shape="rounded" radius="6" placeholder="campaign / web"></image-slot>
+        </div>
+        <span class="go">&gt;&lt; view case</span>
+      </div>
+    </article>
+  </section>
+
+  <section class="section" data-screen-label="About teaser">
+    <div class="section-head" data-reveal>
+      <h2 class="display">about</h2>
+      <span class="serif-note">(in brief)</span>
+      <span class="label">est. 2021</span>
+    </div>
+    <div class="teaser" data-reveal>
+      <p class="teaser-quote">Design that earns attention — <em>not</em> design that begs for it. Four years across product, editorial, agency, and independent practice.</p>
+      <a class="teaser-cta" href="about.html">read the full story →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact" data-screen-label="Contact">
+  <div data-reveal>
+    <div class="label" style="margin-bottom: 18px">have a project in mind<span class="acc">?</span></div>
+    <a class="footer-mail" href="mailto:aleksandraslahova88@gmail.com">aleksandraslahova88<span class="serif-note">@</span>gmail.com</a>
+  </div>
+  <div class="footer-row label">
+    <a href="https://www.linkedin.com/in/aleksandra-slahova-461826264/" target="_blank" rel="noopener">linkedin ↗</a>
+    <span>amsterdam, nl</span>
+    <span>© 2026 aleksandra slahova</span>
+  </div>
+</footer>
+
+<div class="grain"></div>
+
+<script src="image-slot.js"></script>
+<script src="shared.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>about — aleksandra slahova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .about-hero {
+    padding: 150px clamp(20px, 3.5vw, 56px) clamp(48px, 7vw, 100px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(28px, 5vw, 80px);
+    align-items: end;
+  }
+  .about-hero .display {
+    font-size: clamp(64px, 11vw, 190px);
+    color: var(--accent);
+  }
+  .about-intro {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(26px, 3.4vw, 50px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+    text-wrap: pretty;
+    margin-top: 28px;
+  }
+  .about-intro em { color: var(--accent); }
+  .about-portrait {
+    width: clamp(160px, 20vw, 300px);
+    -webkit-mask-image: linear-gradient(to bottom, black 76%, transparent 99%);
+    mask-image: linear-gradient(to bottom, black 76%, transparent 99%);
+    filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.5));
+  }
+  .about-meta { display: flex; gap: 28px; margin-top: 30px; flex-wrap: wrap; }
+  @media (max-width: 860px) {
+    .about-hero { grid-template-columns: 1fr; }
+    .about-portrait { order: -1; }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    padding: clamp(24px, 3vw, 44px) clamp(20px, 3.5vw, 56px);
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat b {
+    display: block;
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(36px, 4.6vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat b i { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+  .stat span { display: block; margin-top: 10px; }
+  @media (max-width: 720px) {
+    .stat { border-right: none; border-bottom: 1px solid var(--line); }
+    .stat:last-child { border-bottom: none; }
+  }
+
+  /* philosophy */
+  .philo { display: grid; gap: 0; }
+  .philo-item {
+    display: grid;
+    grid-template-columns: minmax(80px, 0.16fr) minmax(220px, 0.45fr) 1fr;
+    gap: 18px 32px;
+    border-top: 1px solid var(--line);
+    padding: clamp(26px, 3.4vw, 44px) 0;
+    align-items: baseline;
+  }
+  .philo-item:last-child { border-bottom: 1px solid var(--line); }
+  .philo-num {
+    font-family: var(--mono); font-size: 13px; color: var(--accent);
+  }
+  .philo-item h3 {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(22px, 2.6vw, 38px);
+    letter-spacing: -0.015em; line-height: 1;
+    text-transform: lowercase;
+  }
+  .philo-item p { color: var(--muted); font-size: 15.5px; max-width: 54ch; }
+  @media (max-width: 860px) {
+    .philo-item { grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* experience rows */
+  .xp { display: grid; }
+  .xp-row {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.2fr) minmax(220px, 0.42fr) 1fr;
+    gap: 14px 32px;
+    border-top: 1px solid var(--line);
+    padding: clamp(22px, 3vw, 36px) 0;
+    align-items: baseline;
+    transition: background 200ms ease;
+  }
+  .xp-row:last-child { border-bottom: 1px solid var(--line); }
+  .xp-row:hover { background: var(--bg-2); }
+  .xp-when { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .xp-who h3 {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(20px, 2.3vw, 32px);
+    letter-spacing: -0.015em; line-height: 1.05;
+    text-transform: lowercase;
+  }
+  .xp-who .serif-note { color: var(--accent); font-size: 15px; }
+  .xp-what { color: var(--muted); font-size: 14.5px; max-width: 58ch; }
+  @media (max-width: 860px) {
+    .xp-row { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* recognition + languages */
+  .recog-row {
+    display: flex; flex-wrap: wrap; gap: 14px 40px;
+    border-top: 1px solid var(--line);
+    padding: 22px 0;
+    align-items: baseline;
+  }
+  .recog-row:last-child { border-bottom: 1px solid var(--line); }
+  .recog-row .serif-note { font-size: clamp(19px, 2vw, 28px); }
+  .recog-row .label { margin-left: auto; }
+</style>
+</head>
+<body data-screen-label="About page">
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">as<sup>®</sup></a>
+  <div class="nav-links">
+    <a href="work.html">work</a>
+    <a href="about.html" aria-current="page">about</a>
+    <a href="index.html#contact">contact</a>
+  </div>
+  <div class="nav-meta">amsterdam, nl — 52.37°n</div>
+</nav>
+
+<header class="about-hero" data-screen-label="About header">
+  <div>
+    <h1 class="display">about</h1>
+    <p class="about-intro">Design that earns attention — <em>not</em> design that begs for it.</p>
+    <div class="about-meta">
+      <span class="label">{ digital &amp; product designer }</span>
+      <span class="label">( amsterdam, nl )</span>
+    </div>
+  </div>
+  <img class="about-portrait" src="assets/portrait-cutout.png" alt="Illustrated portrait of Aleksandra wearing headphones">
+</header>
+
+<div class="stats" data-screen-label="Stats">
+  <div class="stat" data-reveal><b>4<i>+</i></b><span class="label">years of experience</span></div>
+  <div class="stat" data-reveal><b>50<i>+</i></b><span class="label">screens in one redesign</span></div>
+  <div class="stat" data-reveal><b>25<i>+</i></b><span class="label">clients &amp; teams served</span></div>
+  <div class="stat" data-reveal><b>5</b><span class="label">countries shipped to</span></div>
+</div>
+
+<main>
+  <section class="section" data-screen-label="Philosophy">
+    <div class="section-head" data-reveal>
+      <h2 class="display">philosophy</h2>
+      <span class="serif-note">(how i work)</span>
+    </div>
+    <div class="philo">
+      <div class="philo-item" data-reveal>
+        <span class="philo-num">(01)</span>
+        <h3>typography first</h3>
+        <p>Most design problems are typography problems wearing a costume. Get the type system, hierarchy, and rhythm right and the interface starts explaining itself.</p>
+      </div>
+      <div class="philo-item" data-reveal>
+        <span class="philo-num">(02)</span>
+        <h3>systems over screens</h3>
+        <p>A beautiful screen is an anecdote; a design system is an argument. Variables, tokens, and component libraries mean the hundredth screen ships as sharp as the first.</p>
+      </div>
+      <div class="philo-item" data-reveal>
+        <span class="philo-num">(03)</span>
+        <h3>craft survives handoff</h3>
+        <p>Design isn't done in Figma — it's done when it ships. Dev Mode, accessibility standards, and tight engineering collaboration are part of the work, not an afterthought.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Experience">
+    <div class="section-head" data-reveal>
+      <h2 class="display">experience</h2>
+      <span class="serif-note">(4+ years)</span>
+      <span class="label">2021 — present</span>
+    </div>
+    <div class="xp">
+      <div class="xp-row" data-reveal>
+        <span class="xp-when">2026 — now</span>
+        <div class="xp-who"><h3>tictaps</h3><span class="serif-note">digital &amp; product designer</span></div>
+        <p class="xp-what">Full UI redesign of a mobile gaming app ahead of launch — 50+ screens, design system on Figma variables, App Store suite, Webflow landing.</p>
+      </div>
+      <div class="xp-row" data-reveal>
+        <span class="xp-when">2026</span>
+        <div class="xp-who"><h3>readymag</h3><span class="serif-note">digital &amp; product designer</span></div>
+        <p class="xp-what">Editor UI redesign to WCAG standards; scaled the component library by 30–40 components on design tokens; typography-heavy landings and onboarding.</p>
+      </div>
+      <div class="xp-row" data-reveal>
+        <span class="xp-when">2024 — 25</span>
+        <div class="xp-who"><h3>svg group</h3><span class="serif-note">digital designer</span></div>
+        <p class="xp-what">End-to-end design for 10+ startups across fintech, real estate, hospitality, and education — three projects a month, modular systems throughout.</p>
+      </div>
+      <div class="xp-row" data-reveal>
+        <span class="xp-when">2024 — 25</span>
+        <div class="xp-who"><h3>future plc</h3><span class="serif-note">digital designer</span></div>
+        <p class="xp-what">Promoted from intern in 4 months. Owned design across 3 major editorial campaigns — 50+ assets each, motion banners in After Effects.</p>
+      </div>
+      <div class="xp-row" data-reveal>
+        <span class="xp-when">2021 — 24</span>
+        <div class="xp-who"><h3>independent</h3><span class="serif-note">freelance designer</span></div>
+        <p class="xp-what">Websites, identities, and campaigns for 15 clients across the UK, Netherlands, Italy, Spain, and Bali — mostly repeat referrals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Recognition">
+    <div class="section-head" data-reveal>
+      <h2 class="display">recognition</h2>
+      <span class="serif-note">(&amp; education)</span>
+    </div>
+    <div data-reveal>
+      <div class="recog-row">
+        <span class="serif-note">Featured Designer — Momentum Exhibition, Design Museum London</span>
+        <span class="label">2024</span>
+      </div>
+      <div class="recog-row">
+        <span class="serif-note">Project of the Year — Istituto Marangoni</span>
+        <span class="label">2024</span>
+      </div>
+      <div class="recog-row">
+        <span class="serif-note">BA (Hons) Visual Design, First Class — Istituto Marangoni London</span>
+        <span class="label">2021 — 24</span>
+      </div>
+      <div class="recog-row">
+        <span class="label">languages / english · russian · spanish · latvian · dutch</span>
+        <span class="label">tools / figma · framer · webflow · adobe cs · after effects</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="case-next" style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 28px clamp(20px, 3.5vw, 56px);">
+  <a href="work.html" class="label" style="transition: color 200ms ease">← selected work</a>
+  <a href="index.html" class="label">home →</a>
+</div>
+
+<footer class="footer" id="contact" data-screen-label="Contact">
+  <div data-reveal>
+    <div class="label" style="margin-bottom: 18px">have a project in mind<span class="acc">?</span></div>
+    <a class="footer-mail" href="mailto:aleksandraslahova88@gmail.com">aleksandraslahova88<span class="serif-note">@</span>gmail.com</a>
+  </div>
+  <div class="footer-row label">
+    <a href="https://www.linkedin.com/in/aleksandra-slahova-461826264/" target="_blank" rel="noopener">linkedin ↗</a>
+    <span>amsterdam, nl</span>
+    <span>© 2026 aleksandra slahova</span>
+  </div>
+</footer>
+
+<div class="grain"></div>
+
+<script src="shared.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
+
+</body>
+</html>
