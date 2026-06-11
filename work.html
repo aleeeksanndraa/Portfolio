@@ -4,16 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>work — aleksandra slahova</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
   .page-head {
-    padding: 150px clamp(20px, 3.5vw, 56px) clamp(40px, 6vw, 80px);
+    padding: 150px clamp(20px, 3.5vw, 56px) clamp(28px, 4vw, 56px);
     display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px 28px;
   }
   .page-head .display {
@@ -22,75 +19,8 @@
   }
   .page-head .serif-note { font-size: clamp(24px, 3vw, 48px); }
   .page-head .label { margin-left: auto; }
-
-  .case {
-    border-top: 1px solid var(--line);
-    padding: clamp(48px, 7vw, 110px) clamp(20px, 3.5vw, 56px);
-    scroll-margin-top: 80px;
-  }
-  .case-head {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px;
-    margin-bottom: clamp(28px, 4vw, 56px);
-  }
-  .case-num {
-    font-family: var(--display); font-weight: 900;
-    font-size: clamp(40px, 5vw, 80px);
-    line-height: 0.9;
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--accent);
-  }
-  .case-title {
-    font-family: var(--display); font-weight: 900;
-    font-size: clamp(40px, 6.5vw, 110px);
-    letter-spacing: -0.02em; line-height: 0.95;
-    text-transform: lowercase;
-  }
-  .case-title .serif-note { color: var(--accent); font-size: 0.7em; font-weight: 400; }
-  .case-head .label { margin-left: auto; }
-
-  .case-grid {
-    display: grid;
-    grid-template-columns: minmax(260px, 0.38fr) 1fr;
-    gap: clamp(28px, 4vw, 72px);
-    margin-bottom: clamp(28px, 4vw, 56px);
-  }
-  .case-facts { display: grid; gap: 0; align-content: start; }
-  .case-fact {
-    display: grid; grid-template-columns: 86px 1fr; gap: 14px;
-    border-top: 1px solid var(--line);
-    padding: 12px 0;
-    font-size: 14px;
-  }
-  .case-fact:last-child { border-bottom: 1px solid var(--line); }
-  .case-fact dt { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-  .case-fact dd { color: var(--ink); }
-  .case-desc { color: var(--muted); font-size: 16.5px; max-width: 62ch; }
-  .case-desc strong { color: var(--ink); font-weight: 600; }
-  .case-points { margin-top: 22px; display: grid; gap: 12px; list-style: none; }
-  .case-points li {
-    display: grid; grid-template-columns: 24px 1fr; gap: 12px;
-    color: var(--muted); font-size: 15px; max-width: 60ch;
-  }
-  .case-points li::before { content: "→"; color: var(--accent); font-family: var(--mono); }
-
-  .case-gallery { display: grid; gap: clamp(12px, 1.6vw, 24px); }
-  .gal-row { display: flex; gap: clamp(12px, 1.6vw, 24px); }
-  .gal-phone { width: clamp(150px, 17vw, 250px); aspect-ratio: 9 / 19; }
-  .gal-wide { flex: 1; aspect-ratio: 16 / 9; min-width: 0; }
-  .gal-half { flex: 1; aspect-ratio: 4 / 3; min-width: 0; }
-
-  @media (max-width: 860px) {
-    .case-grid { grid-template-columns: 1fr; }
-    .gal-row { flex-wrap: wrap; }
-  }
-
-  .case-next {
-    display: flex; justify-content: space-between; align-items: baseline;
-    border-top: 1px solid var(--line);
-    padding: 28px clamp(20px, 3.5vw, 56px);
-  }
-  .case-next a { font-family: var(--mono); font-size: 14px; color: var(--muted); transition: color 200ms ease; }
-  .case-next a:hover { color: var(--accent); }
+  .work-list { padding: 0 clamp(20px, 3.5vw, 56px) clamp(56px, 8vw, 110px); }
+  .work-list .project:first-child { border-top: 1px solid var(--line); }
 </style>
 </head>
 <body data-screen-label="Work page">
@@ -107,115 +37,111 @@
 
 <header class="page-head" data-screen-label="Work header">
   <h1 class="display">work</h1>
-  <span class="serif-note">selected (01–03)</span>
+  <span class="serif-note">selected (01–05)</span>
   <span class="label">2021 — 2026</span>
 </header>
 
-<main>
-  <section class="case" id="tictaps" data-screen-label="Case Tictaps">
-    <div class="case-head" data-reveal>
-      <span class="case-num">01</span>
-      <h2 class="case-title">tictaps <span class="serif-note">app redesign</span></h2>
-      <span class="label">mobile gaming · amsterdam</span>
-    </div>
-    <div class="case-grid" data-reveal>
-      <dl class="case-facts">
-        <div class="case-fact"><dt>role</dt><dd>Digital &amp; Product Designer</dd></div>
-        <div class="case-fact"><dt>year</dt><dd>2026 — ongoing</dd></div>
-        <div class="case-fact"><dt>scope</dt><dd>UI/UX · design system · app store suite · landing page</dd></div>
-        <div class="case-fact"><dt>tools</dt><dd>Figma, Figma Variables, Dev Mode, Webflow</dd></div>
-      </dl>
-      <div>
-        <p class="case-desc">A mobile gaming startup approaching official launch needed its iOS and Android app rebuilt from the ground up. I owned the <strong>full UI redesign — 50+ screens</strong> — from user flows and screen architecture to the visual design system underneath.</p>
-        <ul class="case-points">
-          <li>Redesigned 50+ screens with new user flows and screen architecture for both platforms.</li>
-          <li>Built Figma components on variables and Dev Mode, accelerating engineering handoff.</li>
-          <li>Designed the full App Store asset suite and a responsive Webflow landing page ahead of launch.</li>
-        </ul>
+<main class="work-list">
+  <article class="project" data-reveal data-screen-label="Project Tictaps">
+    <a class="project-link" href="work-tictaps.html" aria-label="Tictaps case study"></a>
+    <div class="project-num">01</div>
+    <div class="project-body">
+      <div class="project-top">
+        <h3 class="project-title">tictaps <span class="serif-note">app redesign</span></h3>
+        <div class="project-tags">
+          <span class="label">ui/ux</span>
+          <span class="label">design system</span>
+          <span class="label" style="color: var(--accent)">2026</span>
+        </div>
       </div>
+      <p class="project-desc">Full UI redesign of a mobile gaming app ahead of launch — 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
+      <span class="go">&gt;&lt; view case</span>
     </div>
-    <div class="case-gallery" data-reveal>
-      <div class="gal-row">
-        <image-slot id="case-tictaps-1" class="gal-phone" shape="rounded" radius="28" placeholder="onboarding flow"></image-slot>
-        <image-slot id="case-tictaps-2" class="gal-phone" shape="rounded" radius="28" placeholder="game lobby"></image-slot>
-        <image-slot id="case-tictaps-3" class="gal-wide" shape="rounded" radius="6" placeholder="design system / variables"></image-slot>
-      </div>
-      <div class="gal-row">
-        <image-slot id="case-tictaps-4" class="gal-half" shape="rounded" radius="6" placeholder="app store assets"></image-slot>
-        <image-slot id="case-tictaps-5" class="gal-half" shape="rounded" radius="6" placeholder="webflow landing page"></image-slot>
-      </div>
+    <div class="project-visual">
+      <image-slot id="work-tictaps" class="v-app" shape="rounded" radius="14" placeholder="large app mockup"></image-slot>
     </div>
-  </section>
+  </article>
 
-  <section class="case" id="svg-group" data-screen-label="Case SVG Group">
-    <div class="case-head" data-reveal>
-      <span class="case-num">02</span>
-      <h2 class="case-title">svg group <span class="serif-note">startup websites</span></h2>
-      <span class="label">agency · london &amp; amsterdam</span>
-    </div>
-    <div class="case-grid" data-reveal>
-      <dl class="case-facts">
-        <div class="case-fact"><dt>role</dt><dd>Digital Designer</dd></div>
-        <div class="case-fact"><dt>year</dt><dd>2024 — 2025</dd></div>
-        <div class="case-fact"><dt>scope</dt><dd>responsive web · UI systems · campaigns</dd></div>
-        <div class="case-fact"><dt>tools</dt><dd>Figma, Framer, Webflow, Adobe CS, AI workflows</dd></div>
-      </dl>
-      <div>
-        <p class="case-desc">End-to-end digital design for <strong>10+ startups</strong> across fintech, real estate, hospitality, and education — delivered at a pace of <strong>three projects a month</strong> without letting craft slip.</p>
-        <ul class="case-points">
-          <li>Responsive websites, UI systems, and campaigns across multiple sectors.</li>
-          <li>Modular design systems and Figma component libraries; AI workflows cut asset production time.</li>
-          <li>Cross-functional collaboration with developers and marketing through full project cycles.</li>
-        </ul>
+  <article class="project" data-reveal data-screen-label="Project RecruitFlow">
+    <a class="project-link" href="work-recruitflow.html" aria-label="RecruitFlow case study"></a>
+    <div class="project-num">02</div>
+    <div class="project-body">
+      <div class="project-top">
+        <h3 class="project-title">recruitflow <span class="serif-note">hiring platform</span></h3>
+        <div class="project-tags">
+          <span class="label">product</span>
+          <span class="label">dashboard</span>
+          <span class="label" style="color: var(--accent)">2025</span>
+        </div>
       </div>
+      <p class="project-desc">A recruitment SaaS dashboard designed end-to-end — pipeline views, candidate tracking, and a scalable component library for a fast-moving hiring team.</p>
+      <span class="go">&gt;&lt; view case</span>
     </div>
-    <div class="case-gallery" data-reveal>
-      <div class="gal-row">
-        <image-slot id="case-svg-1" class="gal-wide" shape="rounded" radius="6" placeholder="fintech site — desktop"></image-slot>
-        <image-slot id="case-svg-2" class="gal-half" shape="rounded" radius="6" placeholder="real estate — mobile"></image-slot>
-      </div>
-      <div class="gal-row">
-        <image-slot id="case-svg-3" class="gal-half" shape="rounded" radius="6" placeholder="hospitality brand"></image-slot>
-        <image-slot id="case-svg-4" class="gal-wide" shape="rounded" radius="6" placeholder="campaign visuals"></image-slot>
-      </div>
+    <div class="project-visual">
+      <image-slot id="work-recruitflow" class="v-wide" shape="rounded" radius="10" placeholder="large dashboard mockup"></image-slot>
     </div>
-  </section>
+  </article>
 
-  <section class="case" id="independent" data-screen-label="Case Independent">
-    <div class="case-head" data-reveal>
-      <span class="case-num">03</span>
-      <h2 class="case-title">independent <span class="serif-note">practice</span></h2>
-      <span class="label">freelance · europe</span>
-    </div>
-    <div class="case-grid" data-reveal>
-      <dl class="case-facts">
-        <div class="case-fact"><dt>role</dt><dd>Designer &amp; sole practitioner</dd></div>
-        <div class="case-fact"><dt>year</dt><dd>2021 — 2024</dd></div>
-        <div class="case-fact"><dt>scope</dt><dd>brand identity · web · campaigns</dd></div>
-        <div class="case-fact"><dt>tools</dt><dd>Figma, Adobe CS, Webflow</dd></div>
-      </dl>
-      <div>
-        <p class="case-desc">An independent practice serving <strong>15 clients</strong> across fintech, education, wellness, and lifestyle — from the UK and Netherlands to Italy, Spain, and Bali. Most work arrived by repeat referral.</p>
-        <ul class="case-points">
-          <li>Websites, brand identities, and campaigns delivered end-to-end.</li>
-          <li>Wireframes, prototypes, and production-ready Figma files for every engagement.</li>
-        </ul>
+  <article class="project" data-reveal data-screen-label="Project Capital Link">
+    <a class="project-link" href="work-capital-link.html" aria-label="Capital Link case study"></a>
+    <div class="project-num">03</div>
+    <div class="project-body">
+      <div class="project-top">
+        <h3 class="project-title">capital link <span class="serif-note">fintech website</span></h3>
+        <div class="project-tags">
+          <span class="label">web</span>
+          <span class="label">brand</span>
+          <span class="label" style="color: var(--accent)">2024</span>
+        </div>
       </div>
+      <p class="project-desc">Marketing site and visual identity for a capital-markets platform — a responsive, trust-forward website built from the ground up in Webflow.</p>
+      <span class="go">&gt;&lt; view case</span>
     </div>
-    <div class="case-gallery" data-reveal>
-      <div class="gal-row">
-        <image-slot id="case-ind-1" class="gal-half" shape="rounded" radius="6" placeholder="brand identity"></image-slot>
-        <image-slot id="case-ind-2" class="gal-half" shape="rounded" radius="6" placeholder="wellness site"></image-slot>
-        <image-slot id="case-ind-3" class="gal-half" shape="rounded" radius="6" placeholder="campaign"></image-slot>
+    <div class="project-visual">
+      <image-slot id="work-capitallink" class="v-wide" shape="rounded" radius="10" placeholder="large laptop / website mockup"></image-slot>
+    </div>
+  </article>
+
+  <article class="project" data-reveal data-screen-label="Project Landing Pages">
+    <a class="project-link" href="work-landing-pages.html" aria-label="Selected Landing Pages case study"></a>
+    <div class="project-num">04</div>
+    <div class="project-body">
+      <div class="project-top">
+        <h3 class="project-title">landing pages <span class="serif-note">selected</span></h3>
+        <div class="project-tags">
+          <span class="label">web</span>
+          <span class="label">conversion</span>
+          <span class="label" style="color: var(--accent)">2022–25</span>
+        </div>
       </div>
+      <p class="project-desc">A collection of high-converting landing pages across fintech, SaaS, and lifestyle — fast turnarounds, sharp hierarchy, and measurable lift.</p>
+      <span class="go">&gt;&lt; view case</span>
     </div>
-  </section>
+    <div class="project-visual">
+      <image-slot id="work-landing" class="v-stack" shape="rounded" radius="10" placeholder="stacked landing page previews"></image-slot>
+    </div>
+  </article>
+
+  <article class="project" data-reveal data-screen-label="Project Visual Archive">
+    <a class="project-link" href="work-visual-archive.html" aria-label="Visual Archive case study"></a>
+    <div class="project-num">05</div>
+    <div class="project-body">
+      <div class="project-top">
+        <h3 class="project-title">visual archive <span class="serif-note">posters &amp; logos</span></h3>
+        <div class="project-tags">
+          <span class="label">brand</span>
+          <span class="label">type</span>
+          <span class="label" style="color: var(--accent)">ongoing</span>
+        </div>
+      </div>
+      <p class="project-desc">An ongoing archive of poster studies, logo marks, and typographic experiments — the visual practice behind the client work.</p>
+      <span class="go">&gt;&lt; view case</span>
+    </div>
+    <div class="project-visual">
+      <image-slot id="work-archive" class="v-square" shape="rounded" radius="10" placeholder="poster / logo collage"></image-slot>
+    </div>
+  </article>
 </main>
-
-<div class="case-next">
-  <a href="index.html">← back home</a>
-  <a href="about.html">about aleksandra →</a>
-</div>
 
 <footer class="footer" id="contact" data-screen-label="Contact">
   <div data-reveal>

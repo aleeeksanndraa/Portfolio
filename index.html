@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>aleksandra slahova — digital designer</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -51,15 +48,35 @@
     color: var(--ink);
   }
   .hero-stack { margin-top: clamp(36px, 9vh, 130px); }
-  .hero-portrait {
+  /* dark spinning-head portal — black video bg blends into the disc */
+  .hero-portal {
     position: absolute;
-    left: 50%; bottom: -0.08em;
-    transform: translateX(-50%);
+    left: 50%; top: 50%;
+    transform: translate(-50%, -55%);
     z-index: 4;
-    width: clamp(200px, 27.5vw, 450px);
+    width: clamp(200px, 26vw, 420px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #000;
+    overflow: hidden;
     pointer-events: none;
-    -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 99%);
-    mask-image: linear-gradient(to bottom, black 78%, transparent 99%);
+    box-shadow:
+      0 0 0 1px rgba(157, 123, 255, 0.28),
+      0 0 0 7px rgba(22, 19, 28, 0.04),
+      0 40px 90px -28px rgba(22, 19, 28, 0.45);
+  }
+  .hero-portal::after {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 60px 6px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+  }
+  .hero-portal video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.04);
   }
   .hero-anno {
     position: absolute;
@@ -102,7 +119,7 @@
 
   @media (max-width: 860px) {
     .anno-left, .anno-right, .hero-brax { display: none; }
-    .hero-portrait { width: clamp(180px, 52vw, 300px); }
+    .hero-portal { width: clamp(190px, 56vw, 320px); }
   }
 
   /* ---------- peek strip ---------- */
@@ -159,8 +176,9 @@
 <header class="hero" data-screen-label="Hero">
   <div class="hero-stack">
     <span class="display hero-line-1">aleksandra</span>
-    <img class="hero-portrait" src="assets/portrait-cutout.png" alt="" style="display: none">
-    <video class="hero-portrait" src="assets/spinning head.webm" poster="assets/portrait-poster.png" autoplay loop muted playsinline aria-label="Rotating illustrated portrait of Aleksandra wearing headphones"></video>
+    <div class="hero-portal">
+      <img src="assets/hero-portrait-transparent.png" alt="3D portrait of Aleksandra wearing headphones">
+    </div>
     <span class="display hero-line-2">slahova<sup>®</sup></span>
     <span class="serif-note anno-role">digital designer</span>
   </div>
@@ -188,12 +206,12 @@ instagram — @aleeeksanndraa</div>
   <section class="section" id="work" data-screen-label="Work">
     <div class="section-head" data-reveal>
       <h2 class="display">selected work</h2>
-      <span class="serif-note">(01–03)</span>
-      <span class="label">2022 — 2026</span>
+      <span class="serif-note">(01–05)</span>
+      <span class="label">2021 — 2026</span>
     </div>
 
     <article class="project" data-reveal data-screen-label="Project Tictaps">
-      <a class="project-link" href="work.html#tictaps" aria-label="Tictaps case study"></a>
+      <a class="project-link" href="work-tictaps.html" aria-label="Tictaps case study"></a>
       <div class="project-num">01</div>
       <div class="project-body">
         <div class="project-top">
@@ -201,58 +219,94 @@ instagram — @aleeeksanndraa</div>
           <div class="project-tags">
             <span class="label">ui/ux</span>
             <span class="label">design system</span>
-            <span class="label acc" style="color: var(--accent)">2026</span>
+            <span class="label" style="color: var(--accent)">2026</span>
           </div>
         </div>
-        <p class="project-desc">Full UI redesign of a mobile gaming app ahead of its official launch — 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
-        <div class="project-media">
-          <image-slot id="tictaps-phone-1" class="media-phone" shape="rounded" radius="28" placeholder="app screen 01"></image-slot>
-          <image-slot id="tictaps-phone-2" class="media-phone" shape="rounded" radius="28" placeholder="app screen 02"></image-slot>
-          <image-slot id="tictaps-wide" class="media-wide" shape="rounded" radius="6" placeholder="design system / components"></image-slot>
-        </div>
+        <p class="project-desc">Full UI redesign of a mobile gaming app ahead of launch — 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
         <span class="go">&gt;&lt; view case</span>
+      </div>
+      <div class="project-visual">
+        <image-slot id="home-tictaps" class="v-app" shape="rounded" radius="14" placeholder="large app mockup"></image-slot>
       </div>
     </article>
 
-    <article class="project" data-reveal data-screen-label="Project SVG Group">
-      <a class="project-link" href="work.html#svg-group" aria-label="SVG Group case study"></a>
+    <article class="project" data-reveal data-screen-label="Project RecruitFlow">
+      <a class="project-link" href="work-recruitflow.html" aria-label="RecruitFlow case study"></a>
       <div class="project-num">02</div>
       <div class="project-body">
         <div class="project-top">
-          <h3 class="project-title">svg group <span class="serif-note">startup websites</span></h3>
+          <h3 class="project-title">recruitflow <span class="serif-note">hiring platform</span></h3>
           <div class="project-tags">
-            <span class="label">web</span>
-            <span class="label">ui systems</span>
-            <span class="label" style="color: var(--accent)">2024–25</span>
+            <span class="label">product</span>
+            <span class="label">dashboard</span>
+            <span class="label" style="color: var(--accent)">2025</span>
           </div>
         </div>
-        <p class="project-desc">End-to-end digital design for 10+ startups across fintech, real estate, hospitality, and education — responsive sites, modular UI systems, and campaigns at a pace of three projects a month.</p>
-        <div class="project-media">
-          <image-slot id="svg-wide" class="media-wide" shape="rounded" radius="6" placeholder="website hero / desktop"></image-slot>
-          <image-slot id="svg-half" class="media-half" shape="rounded" radius="6" placeholder="mobile / detail shot"></image-slot>
-        </div>
+        <p class="project-desc">A recruitment SaaS dashboard designed end-to-end — pipeline views, candidate tracking, and a scalable component library for a fast-moving hiring team.</p>
         <span class="go">&gt;&lt; view case</span>
+      </div>
+      <div class="project-visual">
+        <image-slot id="home-recruitflow" class="v-wide" shape="rounded" radius="10" placeholder="large dashboard mockup"></image-slot>
       </div>
     </article>
 
-    <article class="project" data-reveal data-screen-label="Project Independent">
-      <a class="project-link" href="work.html#independent" aria-label="Independent practice case study"></a>
+    <article class="project" data-reveal data-screen-label="Project Capital Link">
+      <a class="project-link" href="work-capital-link.html" aria-label="Capital Link case study"></a>
       <div class="project-num">03</div>
       <div class="project-body">
         <div class="project-top">
-          <h3 class="project-title">independent <span class="serif-note">practice</span></h3>
+          <h3 class="project-title">capital link <span class="serif-note">fintech website</span></h3>
           <div class="project-tags">
-            <span class="label">brand</span>
             <span class="label">web</span>
-            <span class="label" style="color: var(--accent)">2021–24</span>
+            <span class="label">brand</span>
+            <span class="label" style="color: var(--accent)">2024</span>
           </div>
         </div>
-        <p class="project-desc">Websites, brand identities, and campaigns for 15 clients across the UK, Netherlands, Italy, Spain, and Bali — fintech to wellness, with a high rate of repeat referrals.</p>
-        <div class="project-media">
-          <image-slot id="ind-half-1" class="media-half" shape="rounded" radius="6" placeholder="brand identity"></image-slot>
-          <image-slot id="ind-half-2" class="media-half" shape="rounded" radius="6" placeholder="campaign / web"></image-slot>
-        </div>
+        <p class="project-desc">Marketing site and visual identity for a capital-markets platform — a responsive, trust-forward website built from the ground up in Webflow.</p>
         <span class="go">&gt;&lt; view case</span>
+      </div>
+      <div class="project-visual">
+        <image-slot id="home-capitallink" class="v-wide" shape="rounded" radius="10" placeholder="large laptop / website mockup"></image-slot>
+      </div>
+    </article>
+
+    <article class="project" data-reveal data-screen-label="Project Landing Pages">
+      <a class="project-link" href="work-landing-pages.html" aria-label="Selected Landing Pages case study"></a>
+      <div class="project-num">04</div>
+      <div class="project-body">
+        <div class="project-top">
+          <h3 class="project-title">landing pages <span class="serif-note">selected</span></h3>
+          <div class="project-tags">
+            <span class="label">web</span>
+            <span class="label">conversion</span>
+            <span class="label" style="color: var(--accent)">2022–25</span>
+          </div>
+        </div>
+        <p class="project-desc">A collection of high-converting landing pages across fintech, SaaS, and lifestyle — fast turnarounds, sharp hierarchy, and measurable lift.</p>
+        <span class="go">&gt;&lt; view case</span>
+      </div>
+      <div class="project-visual">
+        <image-slot id="home-landing" class="v-stack" shape="rounded" radius="10" placeholder="stacked landing page previews"></image-slot>
+      </div>
+    </article>
+
+    <article class="project" data-reveal data-screen-label="Project Visual Archive">
+      <a class="project-link" href="work-visual-archive.html" aria-label="Visual Archive case study"></a>
+      <div class="project-num">05</div>
+      <div class="project-body">
+        <div class="project-top">
+          <h3 class="project-title">visual archive <span class="serif-note">posters &amp; logos</span></h3>
+          <div class="project-tags">
+            <span class="label">brand</span>
+            <span class="label">type</span>
+            <span class="label" style="color: var(--accent)">ongoing</span>
+          </div>
+        </div>
+        <p class="project-desc">An ongoing archive of poster studies, logo marks, and typographic experiments — the visual practice behind the client work.</p>
+        <span class="go">&gt;&lt; view case</span>
+      </div>
+      <div class="project-visual">
+        <image-slot id="home-archive" class="v-square" shape="rounded" radius="10" placeholder="poster / logo collage"></image-slot>
       </div>
     </article>
   </section>
