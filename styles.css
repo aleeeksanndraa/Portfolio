@@ -131,7 +131,7 @@ body[data-grain="off"] .grain { display: none; }
 @media (max-width: 860px) {
   .nav-meta { display: none; }
   .nav-burger { display: flex; }
-  .nav-links {
+  .nav .nav-links {
     position: absolute;
     left: 0; right: 0; top: 100%;
     transform: none;
@@ -144,7 +144,7 @@ body[data-grain="off"] .grain { display: none; }
     display: none;
   }
   .nav.open .nav-links { display: flex; }
-  .nav-links a {
+  .nav .nav-links a {
     padding: 14px clamp(20px, 3.5vw, 56px);
     font-size: 15px;
   }
