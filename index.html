@@ -11,11 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* ---------- light hero island (rest of page is dark) ---------- */
+  /* ---------- light aurora hero (rest of page is dark) ---------- */
   body > .nav {
     position: absolute;
     --ink: #16131c;
     --muted: #6f6a7c;
+    --line: rgba(22, 19, 28, 0.16);
+    --menu-bg: #ffffff;
   }
   body > .nav::before { display: none; }
   .hero {
@@ -57,7 +59,7 @@
     left: 50%; top: 50%;
     transform: translate(-50%, -55%);
     z-index: 4;
-    width: clamp(420px, 56vw, 980px);
+    width: clamp(460px, 62vw, 1120px);
     aspect-ratio: 1 / 1;
     pointer-events: none;
   }
@@ -107,7 +109,17 @@
 
   @media (max-width: 860px) {
     .anno-left, .anno-right, .hero-brax { display: none; }
-    .hero-portal { width: clamp(300px, 78vw, 480px); }
+    .hero-stack { display: flex; flex-direction: column; }
+    .hero-line-1 { order: 1; }
+    .hero-line-2 { order: 2; }
+    .anno-role { order: 3; }
+    .hero-portal {
+      order: 4;
+      position: static;
+      transform: none;
+      width: min(94vw, 560px);
+      margin: 14px auto 0;
+    }
   }
 
   /* ---------- peek strip ---------- */
@@ -151,27 +163,40 @@
   /* no rule line over the selected-work header */
   #work .section-head { border-top: none; padding-top: 0; }
 
-  /* cursor image trail — hero only */
-  .trail-img {
-    position: fixed;
-    left: 0; top: 0;
-    width: clamp(70px, 7vw, 110px);
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+  /* hero themes */
+  body[data-hero-theme="noir"] .hero {
+    background: #0d0c14;
+    --ink: #edeaf2;
+    --muted: #8d8798;
+    --line: rgba(237, 234, 242, 0.14);
+  }
+  body[data-hero-theme="noir"] > .nav {
+    --ink: #edeaf2;
+    --muted: #8d8798;
+    --line: rgba(237, 234, 242, 0.14);
+    --menu-bg: #131017;
+  }
+  body[data-hero-theme="noir"] .hero::after { mix-blend-mode: screen; opacity: 0.10; }
+
+  /* hero noise — film grain over the gradient */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     pointer-events: none;
-    z-index: 3;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.35) rotate(var(--r, 0deg));
-    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 320ms ease;
+    opacity: 0.16;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
   }
-  .trail-img.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1) rotate(var(--r, 0deg));
-  }
-  .trail-img.die {
-    opacity: 0;
-    transform: translate(-50%, -52%) scale(0.9) rotate(var(--r, 0deg));
-    transition: transform 480ms ease, opacity 480ms ease;
+
+  /* liquid gradient — flowing colour field, cursor stirs it */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
   }
 
   /* selected work — cards stack & overlap on scroll */
@@ -195,9 +220,11 @@
     <a href="#contact">contact</a>
   </div>
   <div class="nav-meta">amsterdam, nl — 52.37°n</div>
+<button class="nav-burger" type="button" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <header class="hero" data-screen-label="Hero">
+  <canvas class="hero-grid" aria-hidden="true"></canvas>
   <div class="hero-stack">
     <span class="display hero-line-1">aleksandra</span>
     <div class="hero-portal">
@@ -250,7 +277,7 @@ instagram — @aleeeksanndraa</div>
         <span class="go">&gt;&lt; view case</span>
       </div>
       <div class="project-visual">
-        <img class="v-app" src="assets/tiktaps_cover.png" alt="Tictaps cover mockup">
+        <image-slot id="home-tictaps" class="v-app" shape="rect" placeholder="large app mockup"></image-slot>
       </div>
     </article>
 
@@ -370,44 +397,201 @@ instagram — @aleeeksanndraa</div>
 <script src="image-slot.js"></script>
 <script src="shared.js"></script>
 <script>
-// cursor image trail — hero section only
+// liquid gradient — monopo-style flowing colour field; the cursor stirs it (hero only)
 (function () {
   var hero = document.querySelector('.hero');
-  if (!hero) { return; }
-  // poster work — swap or extend anytime
-  var srcs = [
-    'assets/trail/trail-1.jpg',
-    'assets/trail/trail-2.jpg',
-    'assets/trail/trail-3.jpg',
-    'assets/trail/trail-4.jpg',
-    'assets/trail/trail-5.jpg',
-    'assets/trail/trail-6.jpg',
-    'assets/trail/trail-7.jpg'
+  var canvas = document.querySelector('.hero-grid');
+  if (!hero || !canvas) { return; }
+  var ctx = canvas.getContext('2d');
+  var tiny = document.createElement('canvas');
+  var tctx = tiny.getContext('2d');
+  var CW = 200, CH = 100, N = 0;
+  var W = 0, H = 0;
+  var R, G, B, R2, G2, B2, VX, VY, bR, bG, bB, img;
+  var raf = null, visible = true;
+  var lastX = null, lastY = null;
+
+  // purple field — deliberately deeper than the #c4b0ff ui accent
+  var blobs = [
+    { x: 0.25, y: 0.30, rx: 0.26, ry: 0.30, s: 0.55, ax: 0.16, ay: 0.14, fx: 0.00033, fy: 0.00042, ph: 0.0 },
+    { x: 0.75, y: 0.30, rx: 0.24, ry: 0.26, s: 0.50, ax: 0.15, ay: 0.16, fx: 0.00045, fy: 0.00029, ph: 2.1 },
+    { x: 0.55, y: 0.78, rx: 0.28, ry: 0.24, s: 0.52, ax: 0.18, ay: 0.12, fx: 0.00026, fy: 0.00048, ph: 4.2 },
+    { x: 0.35, y: 0.60, rx: 0.20, ry: 0.22, s: 0.40, ax: 0.20, ay: 0.17, fx: 0.00051, fy: 0.00036, ph: 1.2 },
+    { x: 0.52, y: 0.42, rx: 0.34, ry: 0.34, s: 0.70, ax: 0.10, ay: 0.10, fx: 0.00021, fy: 0.00030, ph: 5.0, white: true }
   ];
-  srcs.forEach(function (s) { var p = new Image(); p.src = s; });
-  var i = 0, lastX = null, lastY = null, MIN_DIST = 55;
-  hero.addEventListener('mousemove', function (e) {
-    if (document.body.getAttribute('data-motion') === 'off') { return; }
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
-    if (lastX !== null) {
-      var dx = e.clientX - lastX, dy = e.clientY - lastY;
-      if (dx * dx + dy * dy < MIN_DIST * MIN_DIST) { return; }
+
+  // per-blob radial ramp (core → mid → edge) per theme
+  var THEMES = {
+    indigo: { base: [252, 251, 255], a: [168, 240, 248], b: [158, 182, 252], c: [196, 168, 248] },
+    sunset: { base: [255, 252, 250], a: [255, 224, 130], b: [255, 140, 120], c: [232, 90, 180] },
+    mint:   { base: [250, 254, 252], a: [168, 244, 222], b: [96, 206, 190], c: [110, 130, 240] },
+    noir:   { base: [13, 12, 20],    a: [255, 238, 196], b: [214, 82, 208], c: [110, 70, 210] }
+  };
+  var base = THEMES.indigo.base, rampA = THEMES.indigo.a, rampB = THEMES.indigo.b, rampC = THEMES.indigo.c;
+  function applyTheme() {
+    var th = THEMES[document.body.getAttribute('data-hero-theme')] || THEMES.indigo;
+    base = th.base; rampA = th.a; rampB = th.b; rampC = th.c;
+  }
+
+  function computeBase(t) {
+    for (var y = 0; y < CH; y++) {
+      for (var x = 0; x < CW; x++) {
+        var i = y * CW + x;
+        var r = base[0], g = base[1], b = base[2];
+        var nx = x / CW, ny = y / CH;
+        for (var k = 0; k < blobs.length; k++) {
+          var bl = blobs[k];
+          var bx = bl.x + Math.sin(t * bl.fx + bl.ph) * bl.ax;
+          var by = bl.y + Math.cos(t * bl.fy + bl.ph) * bl.ay;
+          var dx = (nx - bx) / bl.rx, dy = (ny - by) / bl.ry;
+          var q = dx * dx + dy * dy;
+          var w = Math.exp(-q) * bl.s;
+          var cr, cg, cb, u;
+          if (bl.white) {
+            cr = base[0]; cg = base[1]; cb = base[2];
+          } else {
+            var d = Math.sqrt(q) * 0.75;
+            if (d < 0.5) {
+              u = d * 2;
+              cr = rampA[0] + (rampB[0] - rampA[0]) * u;
+              cg = rampA[1] + (rampB[1] - rampA[1]) * u;
+              cb = rampA[2] + (rampB[2] - rampA[2]) * u;
+            } else {
+              u = (d - 0.5) * 2; if (u > 1) { u = 1; }
+              cr = rampB[0] + (rampC[0] - rampB[0]) * u;
+              cg = rampB[1] + (rampC[1] - rampB[1]) * u;
+              cb = rampB[2] + (rampC[2] - rampB[2]) * u;
+            }
+          }
+          r += (cr - r) * w; g += (cg - g) * w; b += (cb - b) * w;
+        }
+        bR[i] = r; bG[i] = g; bB[i] = b;
+      }
     }
-    lastX = e.clientX; lastY = e.clientY;
-    var img = document.createElement('img');
-    img.className = 'trail-img';
-    img.alt = '';
-    img.src = srcs[i++ % srcs.length];
-    img.style.left = e.clientX + 'px';
-    img.style.top = e.clientY + 'px';
-    img.style.setProperty('--r', (Math.random() * 14 - 7).toFixed(1) + 'deg');
-    hero.appendChild(img);
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { img.classList.add('show'); });
-    });
-    setTimeout(function () { img.classList.add('die'); }, 600);
-    setTimeout(function () { img.remove(); }, 1200);
+  }
+
+    function build() {
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = W; canvas.height = H;
+    CH = Math.max(40, Math.round(CW * H / Math.max(W, 1)));
+    N = CW * CH;
+    tiny.width = CW; tiny.height = CH;
+    R = new Float32Array(N); G = new Float32Array(N); B = new Float32Array(N);
+    R2 = new Float32Array(N); G2 = new Float32Array(N); B2 = new Float32Array(N);
+    VX = new Float32Array(N); VY = new Float32Array(N);
+    bR = new Float32Array(N); bG = new Float32Array(N); bB = new Float32Array(N);
+    img = tctx.createImageData(CW, CH);
+    applyTheme();
+    computeBase(0);
+    R.set(bR); G.set(bG); B.set(bB);
+    render();
+  }
+
+  function step(t) {
+    var x, y, i;
+    computeBase(t);
+    for (y = 0; y < CH; y++) {
+      var ay = 0.16 * Math.sin(y * 0.050 + t * 0.00033);
+      for (x = 0; x < CW; x++) {
+        i = y * CW + x;
+        VX[i] *= 0.955; VY[i] *= 0.955;
+        var vx = VX[i] + ay + 0.10 * Math.sin((x + y) * 0.028 - t * 0.00045);
+        var vy = VY[i] + 0.14 * Math.sin(x * 0.044 + t * 0.00038) + 0.08 * Math.cos(y * 0.031 + t * 0.0004);
+        var sx = x - vx, sy = y - vy;
+        if (sx < 0) sx = 0; else if (sx > CW - 1.001) sx = CW - 1.001;
+        if (sy < 0) sy = 0; else if (sy > CH - 1.001) sy = CH - 1.001;
+        var x0 = sx | 0, y0 = sy | 0;
+        var fx = sx - x0, fy = sy - y0;
+        var i00 = y0 * CW + x0, i10 = i00 + 1, i01 = i00 + CW, i11 = i01 + 1;
+        var w00 = (1 - fx) * (1 - fy), w10 = fx * (1 - fy), w01 = (1 - fx) * fy, w11 = fx * fy;
+        var r = R[i00] * w00 + R[i10] * w10 + R[i01] * w01 + R[i11] * w11;
+        var g = G[i00] * w00 + G[i10] * w10 + G[i01] * w01 + G[i11] * w11;
+        var b = B[i00] * w00 + B[i10] * w10 + B[i01] * w01 + B[i11] * w11;
+        R2[i] = r + (bR[i] - r) * 0.022;
+        G2[i] = g + (bG[i] - g) * 0.022;
+        B2[i] = b + (bB[i] - b) * 0.022;
+      }
+    }
+    var tmp;
+    tmp = R; R = R2; R2 = tmp;
+    tmp = G; G = G2; G2 = tmp;
+    tmp = B; B = B2; B2 = tmp;
+  }
+
+  function render() {
+    var d = img.data;
+    for (var i = 0; i < N; i++) {
+      var j = i * 4;
+      d[j] = R[i]; d[j + 1] = G[i]; d[j + 2] = B[i]; d[j + 3] = 255;
+    }
+    tctx.putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.clearRect(0, 0, W, H);
+    ctx.drawImage(tiny, 0, 0, CW, CH, 0, 0, W, H);
+  }
+
+  function motionOK() {
+    if (document.body.getAttribute('data-motion') === 'off') { return false; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return false; }
+    return true;
+  }
+
+  function loop(t) {
+    raf = null;
+    if (!visible) { return; }
+    if (motionOK()) { step(t); render(); }
+    raf = requestAnimationFrame(loop);
+  }
+  function ensureRunning() { if (!raf) { raf = requestAnimationFrame(loop); } }
+
+  hero.addEventListener('pointermove', function (e) {
+    var rect = canvas.getBoundingClientRect();
+    var bx = (e.clientX - rect.left) / Math.max(W, 1) * CW;
+    var by = (e.clientY - rect.top) / Math.max(H, 1) * CH;
+    if (lastX !== null) {
+      var mvx = bx - lastX, mvy = by - lastY;
+      var sp = Math.sqrt(mvx * mvx + mvy * mvy);
+      if (sp > 5) { mvx = mvx / sp * 5; mvy = mvy / sp * 5; }
+      var rad = 13;
+      var x0 = Math.max(0, (bx - rad) | 0), x1 = Math.min(CW - 1, (bx + rad) | 0);
+      var y0 = Math.max(0, (by - rad) | 0), y1 = Math.min(CH - 1, (by + rad) | 0);
+      for (var y = y0; y <= y1; y++) {
+        for (var x = x0; x <= x1; x++) {
+          var dx = x - bx, dy = y - by;
+          var w = Math.exp(-(dx * dx + dy * dy) / (rad * rad * 0.35));
+          var i = y * CW + x;
+          VX[i] += mvx * w * 1.5;
+          VY[i] += mvy * w * 1.5;
+        }
+      }
+    }
+    lastX = bx; lastY = by;
+    ensureRunning();
   });
+  hero.addEventListener('pointerleave', function () { lastX = null; lastY = null; });
+
+  new IntersectionObserver(function (entries) {
+    visible = entries[0].isIntersecting;
+    if (visible) { ensureRunning(); }
+    else if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }).observe(hero);
+
+  var rto = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rto);
+    rto = setTimeout(build, 150);
+  });
+
+  new MutationObserver(function () {
+    applyTheme();
+    computeBase(0);
+    R.set(bR); G.set(bG); B.set(bB);
+    render();
+    ensureRunning();
+  }).observe(document.body, { attributes: true, attributeFilter: ['data-hero-theme'] });
+
+  build();
+  ensureRunning();
 })();
 </script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>

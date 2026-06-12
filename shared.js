@@ -11,3 +11,20 @@
     io.observe(el);
   });
 })();
+
+// mobile burger menu
+(function () {
+  var nav = document.querySelector('.nav');
+  var burger = document.querySelector('.nav-burger');
+  if (!nav || !burger) { return; }
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  Array.prototype.forEach.call(nav.querySelectorAll('.nav-links a'), function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
