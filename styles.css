@@ -276,6 +276,7 @@ body[data-motion="off"] .marquee-track,
 /* single side-image per project */
 .project-visual { width: 100%; }
 .project-visual image-slot { width: 100%; height: auto; display: block; }
+.project-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .v-app { aspect-ratio: 4 / 3; }
 .v-wide { aspect-ratio: 4 / 3; }
 .v-stack { aspect-ratio: 4 / 3; }
