@@ -20,10 +20,6 @@
     --menu-bg: #ffffff;
   }
   body > .nav::before { display: none; }
-  @media (max-width: 860px) {
-    body > .nav { position: fixed; }
-    .hero { touch-action: pan-y; }
-  }
   .hero {
     background: #ffffff;
     --ink: #16131c;
@@ -118,21 +114,11 @@
     .hero-line-2 { order: 2; }
     .anno-role { order: 3; }
     .hero-portal {
-      order: 3;
-      position: relative;
+      order: 4;
+      position: static;
       transform: none;
-      width: 130vw;
-      margin: -80px auto 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 4;
-    }
-    .anno-role { order: 4; margin-top: -148px; }
-    .hero-portal img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
+      width: min(94vw, 560px);
+      margin: 14px auto 0;
     }
   }
 
@@ -285,6 +271,7 @@ instagram — @aleeeksanndraa</div>
             <span class="label">ui/ux</span>
             <span class="label">design system</span>
             <span class="label" style="color: var(--accent)">2026</span>
+            <span class="wip-chip">more visuals being added</span>
           </div>
         </div>
         <p class="project-desc">Full UI redesign of a mobile gaming app ahead of launch — 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
@@ -345,6 +332,7 @@ instagram — @aleeeksanndraa</div>
             <span class="label">web</span>
             <span class="label">conversion</span>
             <span class="label" style="color: var(--accent)">2022–25</span>
+            <span class="wip-chip">more visuals being added</span>
           </div>
         </div>
         <p class="project-desc">A collection of high-converting landing pages across fintech, SaaS, and lifestyle — fast turnarounds, sharp hierarchy, and measurable lift.</p>
@@ -365,6 +353,7 @@ instagram — @aleeeksanndraa</div>
             <span class="label">brand</span>
             <span class="label">type</span>
             <span class="label" style="color: var(--accent)">ongoing</span>
+            <span class="wip-chip">more visuals being added</span>
           </div>
         </div>
         <p class="project-desc">An ongoing archive of poster studies, logo marks, and typographic experiments — the visual practice behind the client work.</p>
