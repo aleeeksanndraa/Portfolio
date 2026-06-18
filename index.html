@@ -112,14 +112,18 @@
     .hero-stack { display: flex; flex-direction: column; }
     .hero-line-1 { order: 1; }
     .hero-line-2 { order: 2; }
-    .anno-role { order: 3; }
+    /* spinning head: bigger, pulled up under "slahova", overlapping it */
     .hero-portal {
-      order: 4;
-      position: static;
-      transform: none;
-      width: min(94vw, 560px);
-      margin: 14px auto 0;
+      order: 3;
+      position: relative;
+      width: 130vw;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: -80px auto 0;
+      z-index: 4;
     }
+    /* "( digital designer )" sits below the head */
+    .anno-role { order: 4; margin-top: -148px; }
   }
 
   /* ---------- peek strip ---------- */
