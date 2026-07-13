@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aleksandra slahova - creator</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=1">
+<style>
+  /* creator-page-only additions on top of ../styles.css */
+  .wrap { max-width: 900px; justify-content: flex-start; }
+
+  .creator-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(32px, 6vh, 56px); }
+  .creator-nav a { font-family: var(--mono); font-size: 13px; color: var(--muted); transition: color 200ms ease; }
+  .creator-nav a:hover { color: var(--accent); }
+
+  .placeholder-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: 3px;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .creator-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: clamp(32px, 5vh, 48px);
+  }
+  @media (max-width: 640px) { .creator-grid { grid-template-columns: repeat(2, 1fr); } }
+  .creator-tile {
+    aspect-ratio: 9 / 16;
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .creator-brands {
+    margin-top: clamp(32px, 5vh, 48px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .creator-brand-slot {
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 14px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .creator-section-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: clamp(40px, 6vh, 64px);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="creator-nav">
+    <a href="/">← aleeeksanndraa.com</a>
+    <a href="/design/">design portfolio</a>
+  </div>
+
+  <span class="placeholder-tag">placeholder — replace with real content</span>
+  <h1 class="hub-name">creator</h1>
+  <div class="hub-role">ugc & content</div>
+
+  <!-- TODO: replace with real creator bio -->
+  <p class="hub-about">[ Add a short creator bio here — content niche, what brands you work with, follower count / platforms, etc. ]</p>
+
+  <div class="creator-section-title">content</div>
+  <div class="creator-grid">
+    <div class="creator-tile">add content example</div>
+    <div class="creator-tile">add content example</div>
+    <div class="creator-tile">add content example</div>
+    <div class="creator-tile">add content example</div>
+    <div class="creator-tile">add content example</div>
+    <div class="creator-tile">add content example</div>
+  </div>
+
+  <div class="creator-section-title">brand collabs</div>
+  <div class="creator-brands">
+    <div class="creator-brand-slot">add brand</div>
+    <div class="creator-brand-slot">add brand</div>
+    <div class="creator-brand-slot">add brand</div>
+  </div>
+
+  <div class="hub-soc">
+    <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram</a>
+    <a href="https://www.youtube.com/@aleeeksanndra" target="_blank" rel="noopener">youtube</a>
+    <a href="mailto:aleksandraslahova88@gmail.com">email for collabs</a>
+  </div>
+
+  <div class="hub-foot">© 2026 aleksandra slahova</div>
+</div>
+
+</body>
+</html>
