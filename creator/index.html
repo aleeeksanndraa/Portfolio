@@ -135,11 +135,14 @@
   .pf-filter:hover { color: var(--ink); border-color: var(--muted); }
   .pf-filter.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
   .pf-grid { position: relative; margin-top: clamp(28px,4vh,44px); }
-  .pf-item { position: absolute; top: 0; left: 0; border-radius: 7px; overflow: hidden; border: 1px solid var(--line); cursor: pointer; background: #15131b; transition: left .3s ease, top .3s ease, width .3s ease, height .3s ease; }
+  .pf-item { position: absolute; top: 0; left: 0; border-radius: 7px; overflow: hidden; border: 1px solid var(--line); cursor: pointer; background: #15131b; }
   .pf-item.hide { display: none; }
   .pf-media { position: relative; overflow: hidden; width: 100%; height: 100%; }
-  .pf-media image-slot, .pf-media img, .pf-media video, .pf-media iframe { width: 100%; height: 100%; display: block; object-fit: cover; border: 0; }
+  .pf-media image-slot, .pf-media img, .pf-media video, .pf-media iframe { width: 100%; height: 100%; display: block; object-fit: cover; border: 0; position: relative; z-index: 1; }
   .pf-media iframe { pointer-events: none; }
+  .pf-media::before { content: ""; position: absolute; top: 50%; left: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: pf-spin .8s linear infinite; z-index: 0; }
+  .pf-media.loaded::before { display: none; }
+  @keyframes pf-spin { to { transform: rotate(360deg); } }
   .pf-over { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; background: linear-gradient(180deg, transparent 45%, rgba(14,13,18,0.82)); opacity: 0; transition: opacity .3s ease; }
   .pf-item:hover .pf-over { opacity: 1; }
   .pf-over .cat { font-family: var(--mono); font-size: 11px; color: var(--accent); }
@@ -612,31 +615,30 @@
     var el = document.createElement('div');
     el.className = 'pf-item'; el.setAttribute('data-cat', p.cat); el.setAttribute('data-id', p.id);
     el.setAttribute('data-span', SPANS[i % SPANS.length]);
-    el.innerHTML = '<div class="pf-media" data-yt="'+p.id+'"><img src="https://i.ytimg.com/vi/'+p.id+'/hqdefault.jpg" alt="'+p.title+'" loading="lazy"></div>'+
+    el.innerHTML = '<div class="pf-media" data-yt="'+p.id+'"><img src="https://i.ytimg.com/vi/'+p.id+'/hqdefault.jpg" alt="'+p.title+'" loading="lazy" onload="this.closest(\'.pf-media\').classList.add(\'loaded\')"></div>'+
       '<div class="pf-over"><span class="cat">'+p.cat+'</span><span class="ttl">'+p.title+'</span><span class="view">view project →</span></div>';
     el.addEventListener('click', function(){ openLB(p); });
     grid.appendChild(el);
   });
 
   /* ---- autoplay muted previews only for tiles in view (avoids overloading YouTube with many concurrent embeds) ---- */
+  /* once a tile has loaded its video it stays loaded - swapping it back out on scroll-up caused jank */
   var pfPreviewIO = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       var media = entry.target, id = media.getAttribute('data-yt');
-      if (entry.isIntersecting) {
-        if (!media.querySelector('iframe')) {
-          media.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&modestbranding=1&playsinline=1&rel=0" title="" allow="autoplay; encrypted-media" loading="lazy"></iframe>';
-        }
-      } else {
-        media.innerHTML = '<img src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="" loading="lazy">';
+      if (entry.isIntersecting && !media.querySelector('iframe')) {
+        media.classList.remove('loaded');
+        media.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&modestbranding=1&playsinline=1&rel=0" title="" allow="autoplay; encrypted-media" loading="lazy" onload="this.closest(\'.pf-media\').classList.add(\'loaded\')"></iframe>';
+        pfPreviewIO.unobserve(media);
       }
     });
-  }, { threshold: 0.4, rootMargin: '400px 0px' });
+  }, { threshold: 0.2, rootMargin: '400px 0px' });
   grid.querySelectorAll('.pf-media').forEach(function(m){ pfPreviewIO.observe(m); });
 
   /* ---- masonry layout: keeps every tile a true 9:16 box, no letterboxing ---- */
   function layoutMasonry(){
     var w = grid.clientWidth;
-    var cols = w > 1000 ? 4 : w > 720 ? 3 : w > 460 ? 2 : 1;
+    var cols = w > 1000 ? 4 : w > 720 ? 3 : 2;
     var gap = 12;
     var colW = (w - gap * (cols - 1)) / cols;
     var heights = new Array(cols).fill(0);
@@ -660,8 +662,16 @@
     grid.style.height = (Math.max.apply(null, heights) - gap) + 'px';
   }
   layoutMasonry();
-  var pfResizeTimer;
-  window.addEventListener('resize', function(){ clearTimeout(pfResizeTimer); pfResizeTimer = setTimeout(layoutMasonry, 150); });
+  var pfResizeTimer, pfLastWidth = grid.clientWidth;
+  window.addEventListener('resize', function(){
+    clearTimeout(pfResizeTimer);
+    pfResizeTimer = setTimeout(function(){
+      var w = grid.clientWidth;
+      if (w === pfLastWidth) return; // iOS Safari fires resize on scroll (URL bar collapse) - height-only, ignore it
+      pfLastWidth = w;
+      layoutMasonry();
+    }, 150);
+  });
 
   /* ---- filters ---- */
   document.getElementById('pf-filters').addEventListener('click', function(e){
@@ -702,8 +712,14 @@
   /* ---- hero parallax (subtle) ---- */
   var heroBg = document.querySelector('.hero-bg');
   if(heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var heroParallaxTicking = false;
     window.addEventListener('scroll', function(){
-      var y = window.scrollY; if(y < window.innerHeight) heroBg.style.transform = 'translateY('+(y*0.18)+'px)';
+      if (heroParallaxTicking) return;
+      heroParallaxTicking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY; if(y < window.innerHeight) heroBg.style.transform = 'translateY('+(y*0.18)+'px)';
+        heroParallaxTicking = false;
+      });
     }, { passive: true });
   }
 })();
