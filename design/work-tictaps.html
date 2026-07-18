@@ -21,116 +21,165 @@
     <a href="index.html#contact">contact</a>
   </div>
   <div class="nav-meta">amsterdam, nl - 52.37°n</div>
-<button class="nav-burger" type="button" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="nav-burger" type="button" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<header class="cs-hero" data-screen-label="Hero">
-  <div class="cs-hero-top" data-reveal>
-    <span>01 / case study</span>
-    <span class="acc">ui/ux · design system</span>
-    <span>launching soon</span>
-    <a class="cs-hero-back" href="work.html">← all work</a>
+<section class="gv" data-screen-label="split layout">
+  <div class="gv-shell">
+
+    <!-- FIXED LEFT PANEL -->
+    <aside class="gv-panel" data-screen-label="fixed info panel">
+      <a class="gv-back" href="work.html">← all work</a>
+      <h1 class="gv-title">tictaps</h1>
+      <div class="gv-tagline">skill-based mobile gaming</div>
+      <p class="gv-intro">A skill-based mobile gaming startup preparing for launch - mini-games with friends, parties, tournaments and real-money gameplay.</p>
+
+      <div class="gv-meta">
+        <span>01 / case study</span>
+        <span style="color:var(--accent)">ui/ux · design system</span>
+        <span class="gv-status">ongoing</span>
+      </div>
+
+      <div class="gv-block">
+        <dl class="cs-facts">
+          <div class="cs-fact"><dt>role</dt><dd>UI/UX Designer</dd></div>
+          <div class="cs-fact"><dt>team</dt><dd>Designer, PM, founders &amp; developers</dd></div>
+          <div class="cs-fact"><dt>scope</dt><dd>Redesign · flows · UI kit · design system · store assets</dd></div>
+          <div class="cs-fact"><dt>tools</dt><dd>Figma</dd></div>
+          <div class="cs-fact"><dt>platform</dt><dd>iOS &amp; Android</dd></div>
+          <div class="cs-fact"><dt>status</dt><dd>Ongoing</dd></div>
+        </dl>
+      </div>
+
+      <a class="gv-panel-next" href="work-recruitflow.html">
+        <span class="label">next - 02 / ai recruitment</span>
+        <span class="t">rcruitflow →</span>
+      </a>
+    </aside>
+
+    <!-- SCROLLING RIGHT COLUMN: visuals + narrative -->
+    <div class="gv-stream" data-screen-label="scrolling case study">
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>tictaps - cover</span><span class="n">01</span></div>
+        <div class="gv-media gv-media--auto"><img src="assets/tictaps/cover.jpg" alt="TicTaps cover"></div>
+      </figure>
+
+      <div class="gv-note-blk gv-hl" data-reveal>
+        <span class="k"><span class="n">01</span>overview</span>
+        <p class="lede">Joined at an <em>early production stage.</em></p>
+        <div class="nb-right">
+          <p>TicTaps already had an initial design direction, but the interface needed to feel more modern, consistent and easier to build. The team needed a cleaner visual direction, a stronger design system and production-ready components for both <strong>iOS and Android</strong>.</p>
+        </div>
+      </div>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>hero screens - app mockup</span><span class="n">02</span></div>
+        <div class="gv-media r-tall"><image-slot id="tictaps-hero" shape="rect" placeholder="large app mockup - hero screens"></image-slot></div>
+      </figure>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">02</span>challenge</span>
+        <p class="lede">Bold gaming visuals on a <em>scalable</em> system.</p>
+        <div class="nb-right">
+          <p>The existing UI was inconsistent and hard to extend. The challenge was making the interface feel energetic and playful while keeping it structured enough to build from - and to hand off cleanly to a development team.</p>
+        </div>
+      </div>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">03</span>process</span>
+        <div class="nb-right">
+          <div class="gv-steps">
+            <div class="gv-step"><span class="n">01</span><h4>Product audit</h4><p>Reviewed existing Figma screens, structure and UI kit to find what to rebuild.</p></div>
+            <div class="gv-step"><span class="n">02</span><h4>Flow refinement</h4><p>Mapped journeys across games, parties, friends, leaderboard and wallet with the PM.</p></div>
+            <div class="gv-step"><span class="n">03</span><h4>UI redesign</h4><p>Cleaner layouts, stronger hierarchy and a bold gaming visual direction.</p></div>
+            <div class="gv-step"><span class="n">04</span><h4>System &amp; handoff</h4><p>Rebuilt the UI kit with components, tokens and mobile patterns.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>ux structure - flow &amp; navigation map</span><span class="n">03</span></div>
+        <div class="gv-media r-wide"><image-slot id="tictaps-ux" shape="rect" placeholder="flow diagram / navigation map"></image-slot></div>
+      </figure>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">04</span>visual direction</span>
+        <p class="lede">Gaming-first - bold, social, <em>energetic.</em></p>
+        <div class="nb-right">
+          <p>The product needed to feel gaming-first while staying structured enough to scale. Bright gradients, neon accents and strong typographic hierarchy give TicTaps its personality without making it chaotic.</p>
+        </div>
+      </div>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>visual direction - key screens</span><span class="n">04</span></div>
+        <div class="gv-media r-wide"><image-slot id="tictaps-visual" shape="rect" placeholder="key screens - visual direction"></image-slot></div>
+      </figure>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">05</span>design system</span>
+        <p class="lede">One <em>scalable</em> kit, iOS &amp; Android.</p>
+        <div class="nb-right">
+          <p>The UI kit was rebuilt as a scalable design system - logo, gradient and color palette, reusable components and mobile patterns, with clear tokens and naming conventions for handoff.</p>
+          <div class="gv-swatches" style="margin-top:4px">
+            <div class="gv-sw"><div class="chip" style="background:linear-gradient(135deg,#00FFAA,#4579F5,#9C42F5)"></div><span class="label">gradient</span></div>
+            <div class="gv-sw"><div class="chip" style="background:#00FFAA"></div><span class="label">#00FFAA</span></div>
+            <div class="gv-sw"><div class="chip" style="background:#4579F5"></div><span class="label">#4579F5</span></div>
+            <div class="gv-sw"><div class="chip" style="background:#9C42F5"></div><span class="label">#9C42F5</span></div>
+            <div class="gv-sw"><div class="chip" style="background:#191C20"></div><span class="label">#191C20</span></div>
+            <div class="gv-sw"><div class="chip" style="background:#212429"></div><span class="label">#212429</span></div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>design system - brand board</span><span class="n">05</span></div>
+        <div class="gv-media gv-media--auto"><img src="assets/tictaps/brand-sheet.png" alt="TicTaps brand and design system board"></div>
+      </figure>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">06</span>app store assets</span>
+        <p class="lede">A full launch <em>asset suite.</em></p>
+        <div class="nb-right">
+          <p>I created the full App Store and Google Play asset suite - screenshots, feature graphics and promotional banners formatted to each store's specifications - alongside a responsive landing page ahead of launch.</p>
+        </div>
+      </div>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>app store - listing &amp; assets</span><span class="n">06</span></div>
+        <div class="gv-media gv-media--auto"><img src="assets/tictaps/app-store.jpg" alt="TicTaps App Store listing"></div>
+      </figure>
+
+      <figure class="gv-fig" data-reveal>
+        <div class="gv-cap"><span>landing page - pre-launch</span><span class="n">07</span></div>
+        <div class="gv-media r-app"><image-slot id="tictaps-landing" shape="rect" placeholder="landing page"></image-slot></div>
+      </figure>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">07</span>outcome</span>
+        <div class="nb-right">
+          <div class="gv-stats" style="max-width:none">
+            <div class="gv-stat"><span class="big">50+</span><span class="cap">mobile screens</span></div>
+            <div class="gv-stat"><span class="big">2</span><span class="cap">platforms, one system</span></div>
+            <div class="gv-stat"><span class="big">iOS &amp; Android</span><span class="cap">production-ready</span></div>
+          </div>
+          <p style="margin-top:6px">Around 50 mobile screens, updated user flows, a rebuilt UI kit and production-ready components. Store assets are complete; development is in progress, with the app preparing for launch.</p>
+        </div>
+      </div>
+
+      <div class="gv-note-blk" data-reveal>
+        <span class="k"><span class="n">08</span>reflection</span>
+        <p class="lede">Closer to <em>development</em> than usual.</p>
+        <div class="nb-right">
+          <p>This project made me more intentional about how I structure and name components - <strong>small decisions that matter a lot during handoff</strong>. Working directly with developers and another designer pushed me to think beyond the screen and consider how the system would actually be built.</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  <div data-reveal>
-    <h1 class="cs-hero-title">tictaps</h1>
-    <div class="cs-hero-sub">skill-based mobile gaming</div>
-    <p class="cs-hero-lede">TicTaps is a skill-based mobile gaming startup preparing for launch - players take on mini-games with friends, create or join parties, enter tournaments and compete using in-game currency or real-money gameplay.</p>
-    <p class="wip-note" style="margin-top:clamp(18px,2.4vw,28px)">more visuals being added to this case study</p>
-  </div>
-  <div data-reveal><image-slot id="tictaps-hero" class="cs-hero-img" shape="rect" placeholder="large app mockup - hero screens"></image-slot></div>
-</header>
-<main>
+</section>
 
-  <section class="cs" id="overview" data-screen-label="overview">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">01</span>
-      <h2 class="cs-kicker">overview</h2>
-    </div>
-    <div data-reveal><div class="cs-cols"><p class="cs-lede">I joined the project at an <em>early production stage.</em></p><div><p class="cs-prose">TicTaps already had an initial design direction, but the interface needed to feel more modern, consistent and easier to build.</p><p class="cs-prose">The team needed a cleaner visual direction, a stronger design system and production-ready components for both <strong>iOS and Android</strong>.</p></div></div></div>
-  </section>
-
-  <section class="cs" id="challenge" data-screen-label="challenge">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">02</span>
-      <h2 class="cs-kicker">challenge</h2>
-    </div>
-    <div data-reveal><div class="cs-cols"><p class="cs-lede">Balancing bold gaming visuals with a <em>scalable design system.</em></p><div><p class="cs-prose">The existing UI was inconsistent and hard to extend. The challenge was making the interface feel energetic and playful while keeping it structured enough to build from - and to hand off cleanly to a development team.</p></div></div></div>
-  </section>
-
-  <section class="cs" id="process" data-screen-label="process">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">03</span>
-      <h2 class="cs-kicker">process</h2>
-    </div>
-    <div data-reveal><div class="cs-steps"><div class="cs-step"><span class="n">01</span><h4>Product audit</h4><p>Reviewed existing Figma screens, app structure and UI kit to identify inconsistencies and areas that needed to be rebuilt.</p></div><div class="cs-step"><span class="n">02</span><h4>Flow refinement</h4><p>Worked with the product manager to map and refine key user journeys across games, parties, friends, leaderboard and wallet.</p></div><div class="cs-step"><span class="n">03</span><h4>UI redesign</h4><p>Redesigned existing screens and created new ones with cleaner layouts, stronger hierarchy and a bold gaming visual direction.</p></div><div class="cs-step"><span class="n">04</span><h4>Design system &amp; handoff</h4><p>Rebuilt the UI kit with reusable components, tokens and mobile patterns to support development across iOS and Android.</p></div></div></div>
-  </section>
-
-  <section class="cs" id="role" data-screen-label="role">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">04</span>
-      <h2 class="cs-kicker">role</h2>
-      <span class="label cs-tag">mobile gaming · amsterdam</span>
-    </div>
-    <div data-reveal><div class="cs-cols"><dl class="cs-facts"><div class="cs-fact"><dt>role</dt><dd>UI/UX Designer</dd></div><div class="cs-fact"><dt>team</dt><dd>Another designer, product manager, founders and developers</dd></div><div class="cs-fact"><dt>scope</dt><dd>Mobile app redesign · user flows · UI kit · design system · components · App Store / Google Play assets</dd></div><div class="cs-fact"><dt>tools</dt><dd>Figma</dd></div><div class="cs-fact"><dt>platform</dt><dd>iOS &amp; Android</dd></div><div class="cs-fact"><dt>status</dt><dd>Launching soon</dd></div></dl><div><ul class="cs-points"><li>Redesigned existing screens and created new flows.</li><li>Built production-ready components for the development team.</li><li>Work covered games homepage, wallet, friend requests, party creation, profile, leaderboard and gameplay screens.</li></ul></div></div></div>
-  </section>
-
-  <section class="cs" id="ux" data-screen-label="ux structure">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">05</span>
-      <h2 class="cs-kicker">ux structure</h2>
-    </div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-flow">Browse <em>→</em> Play <em>→</em> Earn</p><div><p class="cs-prose">Together with the product manager, we mapped and refined the main user flows - browsing games, joining or creating parties, managing friends, checking rankings and accessing the wallet. The goal was a clear, connected experience with minimal friction at every step.</p></div></div></div>
-    <div data-reveal><image-slot id="tictaps-ux" class="v-wide" shape="rect" placeholder="flow diagram / navigation map"></image-slot></div>
-  </section>
-
-  <section class="cs" id="visual" data-screen-label="visual direction">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">06</span>
-      <h2 class="cs-kicker">visual direction</h2>
-    </div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">Gaming-first - bold, social, <em>energetic.</em></p><div><p class="cs-prose">The product needed to feel gaming-first - bold, social and energetic - while staying structured enough to scale. Bright gradients, neon accents and strong typographic hierarchy give TicTaps its personality without making it chaotic.</p></div></div></div>
-    <div data-reveal><image-slot id="tictaps-visual" class="v-wide" shape="rect" placeholder="key screens - visual direction"></image-slot></div>
-  </section>
-
-  <section class="cs" id="ds" data-screen-label="design system">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">07</span>
-      <h2 class="cs-kicker">design system</h2>
-    </div>
-    <div data-reveal><div class="cs-cols"><div><p class="cs-prose" style="margin-bottom:24px">The UI kit was rebuilt as a scalable design system - logo, gradient and color palette, reusable components and mobile patterns with clear tokens and naming conventions for handoff.</p><ul class="cs-points"><li>Logo, gradient and color palette.</li><li>Reusable components and mobile patterns.</li><li>Clear tokens and naming conventions for handoff.</li></ul><div class="cs-swatches" style="margin-top:28px"><div class="cs-swatch"><div class="cs-chip" style="background:linear-gradient(135deg,#00FFAA,#4579F5,#9C42F5)"></div><span class="label">tictaps gradient<br>00FFAA → 4579F5 → 9C42F5</span></div><div class="cs-swatch"><div class="cs-chip" style="background:#00FFAA"></div><span class="label">spring green<br>#00FFAA</span></div><div class="cs-swatch"><div class="cs-chip" style="background:#4579F5"></div><span class="label">cornflower blue<br>#4579F5</span></div><div class="cs-swatch"><div class="cs-chip" style="background:#9C42F5"></div><span class="label">electric purple<br>#9C42F5</span></div><div class="cs-swatch"><div class="cs-chip" style="background:#191C20"></div><span class="label">eerie black<br>#191C20</span></div><div class="cs-swatch"><div class="cs-chip" style="background:#212429"></div><span class="label">graphite<br>#212429</span></div></div></div><figure class="cs-figure"><img src="assets/tictaps/brand-sheet.png" alt="TicTaps brand and design system board - logo, gradient palette and UI components" style="width:100%;height:auto;display:block;border:1px solid var(--line)"><figcaption>brand &amp; design system board - logo, palette, components</figcaption></figure></div></div>
-  </section>
-
-  <section class="cs" id="store" data-screen-label="app store assets">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">08</span>
-      <h2 class="cs-kicker">app store assets</h2>
-    </div>
-    <div data-reveal><div class="cs-cols"><p class="cs-lede">A full launch <em>asset suite.</em></p><div><p class="cs-prose">I created the full App Store and Google Play asset suite - screenshots, feature graphics and promotional banners formatted to each store's specifications - alongside a responsive landing page ahead of launch.</p></div></div></div>
-    <div data-reveal style="margin-top:clamp(28px,4vw,56px)"><figure class="cs-figure"><img src="assets/tictaps/app-store.jpg" alt="TicTaps App Store listing - skill-based mini games, 4.8 rating, preview screenshots" style="width:100%;height:auto;display:block;border:1px solid var(--line)"><figcaption>app store listing - tictaps · skill-based mini games</figcaption></figure></div>
-    <div data-reveal style="margin-top:clamp(20px,3vw,40px)"><p class="wip-note">landing page visual still being added</p><div class="cs-gal"><div class="cs-gal-row"><image-slot id="tictaps-landing" class="cs-wide" shape="rect" placeholder="landing page"></image-slot></div></div></div>
-  </section>
-
-  <section class="cs" id="outcome" data-screen-label="outcome">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">09</span>
-      <h2 class="cs-kicker">outcome</h2>
-    </div>
-    <div data-reveal><div class="cs-stats"><div class="cs-stat"><span class="big">50+</span><span class="cap">mobile screens</span></div><div class="cs-stat"><span class="big">2</span><span class="cap">platforms, one system</span></div><div class="cs-stat"><span class="big">iOS &amp; Android</span><span class="cap">production-ready</span></div></div><p class="cs-prose" style="margin-top:36px;max-width:64ch">The project covers around 50 mobile screens, updated user flows, a rebuilt UI kit and production-ready components. App Store and Google Play assets are complete. Development is in progress, with the app preparing for launch.</p></div>
-  </section>
-
-  <section class="cs" id="learned" data-screen-label="reflection">
-    <div class="cs-head" data-reveal>
-      <span class="cs-num">10</span>
-      <h2 class="cs-kicker">reflection</h2>
-    </div>
-    <div data-reveal><div class="cs-cols"><p class="cs-lede">Working closer to <em>development than usual.</em></p><div><p class="cs-reflect">This project made me more intentional about how I structure and name components - <strong>small decisions that matter a lot during handoff</strong>. Working directly with developers and another designer pushed me to think beyond the screen and consider how the system would actually be built.</p></div></div></div>
-  </section>
-</main>
-
-  <a class="cs-next" href="work-recruitflow.html" data-reveal data-screen-label="Next project">
-    <span class="label">next - 02 / ai recruitment</span>
-    <span class="cs-next-title">rcruitflow</span>
-  </a>
 <footer class="footer" id="contact" data-screen-label="Contact">
   <div data-reveal>
     <div class="label" style="margin-bottom: 18px">have a project in mind<span class="acc">?</span></div>

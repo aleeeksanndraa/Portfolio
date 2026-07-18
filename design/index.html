@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="p:domain_verify" content="d6ef62855cc7860aac9018c270dc9c74"/>
 <title>aleksandra slahova - digital designer</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -53,6 +54,50 @@
     color: var(--ink);
   }
   .hero-stack { margin-top: clamp(36px, 9vh, 130px); }
+  /* ---------- intro loader: small spinning head → hero ---------- */
+  #loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    transition: opacity 0.9s cubic-bezier(.5,0,.2,1), visibility 0.9s;
+  }
+  #loader .loader-head {
+    width: clamp(120px, 16vw, 190px);
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    animation: loader-float 3s ease-in-out infinite;
+    transition: transform 0.9s cubic-bezier(.5,0,.2,1);
+  }
+  @keyframes loader-float { 50% { transform: translateY(-10px); } }
+  #loader .loader-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  #loader .loader-label b { color: var(--accent); font-weight: 500; }
+  /* smooth hand-off: head grows toward the hero as the veil lifts */
+  body.loaded #loader { opacity: 0; visibility: hidden; }
+  body.loaded #loader .loader-head { transform: scale(2.1); }
+  body:not(.loaded) { overflow: hidden; }
+  /* hero eases in behind the lifting loader */
+  .hero { transition: opacity 0.9s ease 0.15s, transform 0.9s cubic-bezier(.5,0,.2,1) 0.15s; }
+  body:not(.loaded) .hero { opacity: 0; transform: translateY(18px); }
+  body[data-motion="off"] #loader .loader-head { animation: none; }
+  @media (prefers-reduced-motion: reduce) {
+    #loader .loader-head { animation: none; }
+    #loader, .hero, body.loaded #loader .loader-head { transition-duration: 0.3s; }
+  }
+
   /* transparent spinning head - floats over the type */
   .hero-portal {
     position: absolute;
@@ -212,8 +257,37 @@
   @media (max-width: 860px) {
     #work .project { position: static; }
   }
-</style></head>
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aleksandra Slahova",
+  "alternateName": "Aleksandra Shlahova",
+  "url": "https://aleeeksanndraa.com/",
+  "jobTitle": "Digital Designer",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Amsterdam",
+    "addressCountry": "NL"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/aleksandra-slahova-461826264/",
+    "https://www.instagram.com/aleeeksanndraa/",
+    "https://www.youtube.com/@aleeeksanndra",
+    "https://www.behance.net/sashaslahova",
+    "https://designmuseum.org/exhibitions/momentum-a-design-narrative-by-istituto-marangoni-london"
+  ]
+}
+</script>
+</head>
 <body data-screen-label="Home">
+
+<div id="loader" aria-hidden="true">
+  <img class="loader-head" src="assets/portrait-spin.gif" alt="">
+  <div class="loader-label">loading<b>…</b></div>
+</div>
+
 
 <nav class="nav">
   <a class="nav-logo" href="index.html"><img src="assets/logo.svg" alt="aleksandra slahova - logo"></a>
@@ -257,115 +331,132 @@ instagram - @aleeeksanndraa</div>
 </div>
 
 <main>
-  <section class="section" id="work" data-screen-label="Work">
-    <div class="section-head" data-reveal>
-      <h2 class="display">selected work</h2>
-      <span class="serif-note">&lt;01–05&gt;</span>
-      <span class="label">2021 - 2026</span>
+  <section class="gv" id="work" data-screen-label="Work">
+    <div class="gv-shell">
+
+      <aside class="gv-panel" data-screen-label="work rail">
+        <h2 class="gv-title" style="color:var(--accent)">selected<br>work</h2>
+        <div class="gv-rail-sub">&lt;01–05&gt;</div>
+        <div class="gv-rail-meta">2021 - 2026 · amsterdam, nl</div>
+
+        <ul class="gv-idx">
+          <li><a href="#p01"><span class="n">01</span><span>tictaps</span><span class="yr">ongoing</span></a></li>
+          <li><a href="#p02"><span class="n">02</span><span>rcruitflow</span><span class="yr">2025</span></a></li>
+          <li><a href="#p03"><span class="n">03</span><span>capital link</span><span class="yr">2025</span></a></li>
+          <li><a href="#p04"><span class="n">04</span><span>landing pages</span><span class="yr">2025–26</span></a></li>
+          <li><a href="#p05"><span class="n">05</span><span>visual archive</span><span class="yr">ongoing</span></a></li>
+        </ul>
+
+        <a class="gv-panel-next" href="work.html">
+          <span class="label">all work</span>
+          <span class="t">index →</span>
+        </a>
+      </aside>
+
+      <div class="gv-stream" data-screen-label="project list">
+
+        <a class="gv-proj" id="p01" href="work-tictaps.html" data-reveal data-screen-label="Project Tictaps">
+          <span class="gv-proj-media"><img src="assets/tictaps/cover.jpg" alt="Tictaps - app redesign preview" loading="lazy"></span>
+          <div class="gv-proj-head">
+            <span class="gv-proj-num">01</span>
+            <h3 class="gv-proj-title">tictaps <span class="serif-note">app redesign</span></h3>
+            <div class="gv-proj-tags">
+              <span class="label">ui/ux</span>
+              <span class="label">design system</span>
+              <span class="label" style="color:var(--accent)">ongoing</span>
+              <span class="wip-chip">more visuals being added</span>
+            </div>
+          </div>
+          <p class="gv-proj-desc">Full UI redesign of a mobile gaming app ahead of launch - 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
+          <span class="go">&gt;&lt; view case</span>
+        </a>
+
+        <a class="gv-proj" id="p02" href="work-recruitflow.html" data-reveal data-screen-label="Project Rcruitflow">
+          <span class="gv-proj-media"><img src="assets/recruitflow/cover.jpg" alt="Rcruitflow - AI recruitment platform preview" loading="lazy"></span>
+          <div class="gv-proj-head">
+            <span class="gv-proj-num">02</span>
+            <h3 class="gv-proj-title">rcruitflow <span class="serif-note">ai recruitment</span></h3>
+            <div class="gv-proj-tags">
+              <span class="label">product</span>
+              <span class="label">ai · ux</span>
+              <span class="label" style="color:var(--accent)">2025</span>
+            </div>
+          </div>
+          <p class="gv-proj-desc">An AI recruitment assistant designed end-to-end - CV screening, candidate intake, job descriptions and outreach in four guided flows, on a scalable, dev-ready design system.</p>
+          <span class="go">&gt;&lt; view case</span>
+        </a>
+
+        <a class="gv-proj" id="p03" href="work-capital-link.html" data-reveal data-screen-label="Project Capital Link">
+          <span class="gv-proj-media"><img src="assets/capital-link/cover.jpg" alt="Capital Link - luxury booking platform preview" loading="lazy"></span>
+          <div class="gv-proj-head">
+            <span class="gv-proj-num">03</span>
+            <h3 class="gv-proj-title">capital link <span class="serif-note">booking platform</span></h3>
+            <div class="gv-proj-tags">
+              <span class="label">web</span>
+              <span class="label">brand</span>
+              <span class="label" style="color:var(--accent)">2025</span>
+            </div>
+          </div>
+          <p class="gv-proj-desc">A direct-booking platform and brand for luxury serviced apartments in London - Hostaway-synced availability, transparent pricing, and a hotel-grade experience they own.</p>
+          <span class="go">&gt;&lt; view case</span>
+        </a>
+
+        <a class="gv-proj" id="p04" href="work-landing-pages.html" data-reveal data-screen-label="Project Landing Pages">
+          <span class="gv-proj-media"><img src="assets/landing/cover.jpg" alt="Selected landing pages - collection preview" loading="lazy"></span>
+          <div class="gv-proj-head">
+            <span class="gv-proj-num">04</span>
+            <h3 class="gv-proj-title">landing pages <span class="serif-note">selected</span></h3>
+            <div class="gv-proj-tags">
+              <span class="label">web</span>
+              <span class="label">conversion</span>
+              <span class="label" style="color:var(--accent)">2025–26</span>
+              <span class="wip-chip">more visuals being added</span>
+            </div>
+          </div>
+          <p class="gv-proj-desc">A collection of high-converting landing pages across fintech, SaaS, and lifestyle - fast turnarounds, sharp hierarchy, and measurable lift.</p>
+          <span class="go">&gt;&lt; view case</span>
+        </a>
+
+        <a class="gv-proj" id="p05" href="work-visual-archive.html" data-reveal data-screen-label="Project Visual Archive">
+          <span class="gv-proj-media"><img src="assets/visual-archive/cover.jpg" alt="Visual archive - posters, logos & graphic design preview" loading="lazy"></span>
+          <div class="gv-proj-head">
+            <span class="gv-proj-num">05</span>
+            <h3 class="gv-proj-title">visual archive <span class="serif-note">posters &amp; logos</span></h3>
+            <div class="gv-proj-tags">
+              <span class="label">brand</span>
+              <span class="label">type</span>
+              <span class="label" style="color:var(--accent)">ongoing</span>
+              <span class="wip-chip">more visuals being added</span>
+            </div>
+          </div>
+          <p class="gv-proj-desc">An ongoing archive of poster studies, logo marks, and typographic experiments - the visual practice behind the client work.</p>
+          <span class="go">&gt;&lt; view case</span>
+        </a>
+
+      </div>
     </div>
+  </section>
 
-    <article class="project" data-reveal data-screen-label="Project Tictaps">
-      <a class="project-link" href="work-tictaps.html" aria-label="Tictaps case study"></a>
-      <div class="project-num">01</div>
-      <div class="project-body">
-        <div class="project-top">
-          <h3 class="project-title">tictaps <span class="serif-note">app redesign</span></h3>
-          <div class="project-tags">
-            <span class="label">ui/ux</span>
-            <span class="label">design system</span>
-            <span class="label" style="color: var(--accent)">2026</span>
-            <span class="wip-chip">more visuals being added</span>
-          </div>
-        </div>
-        <p class="project-desc">Full UI redesign of a mobile gaming app ahead of launch - 50+ screens, user flows, and a variables-driven design system for iOS and Android.</p>
-        <span class="go">&gt;&lt; view case</span>
-      </div>
-      <div class="project-visual">
-        <img src="assets/tictaps/cover.jpg" class="v-app" alt="Tictaps - tap-based mini games app preview" loading="lazy">
-      </div>
-    </article>
-
-    <article class="project" data-reveal data-screen-label="Project Rcruitflow">
-      <a class="project-link" href="work-recruitflow.html" aria-label="Rcruitflow case study"></a>
-      <div class="project-num">02</div>
-      <div class="project-body">
-        <div class="project-top">
-          <h3 class="project-title">rcruitflow <span class="serif-note">ai recruitment</span></h3>
-          <div class="project-tags">
-            <span class="label">product</span>
-            <span class="label">ai · ux</span>
-            <span class="label" style="color: var(--accent)">2025</span>
-          </div>
-        </div>
-        <p class="project-desc">An AI recruitment assistant designed end-to-end - CV screening, candidate intake, job descriptions and outreach in four guided flows, on a scalable, dev-ready design system.</p>
-        <span class="go">&gt;&lt; view case</span>
-      </div>
-      <div class="project-visual">
-        <img src="assets/recruitflow/cover.jpg" class="v-wide" alt="Rcruitflow - AI recruitment platform preview" loading="lazy">
-      </div>
-    </article>
-
-    <article class="project" data-reveal data-screen-label="Project Capital Link">
-      <a class="project-link" href="work-capital-link.html" aria-label="Capital Link case study"></a>
-      <div class="project-num">03</div>
-      <div class="project-body">
-        <div class="project-top">
-          <h3 class="project-title">capital link <span class="serif-note">booking platform</span></h3>
-          <div class="project-tags">
-            <span class="label">web</span>
-            <span class="label">brand</span>
-            <span class="label" style="color: var(--accent)">2025</span>
-          </div>
-        </div>
-        <p class="project-desc">A direct-booking platform and brand for luxury serviced apartments in London - Hostaway-synced availability, transparent pricing, and a hotel-grade experience they own.</p>
-        <span class="go">&gt;&lt; view case</span>
-      </div>
-      <div class="project-visual">
-        <img src="assets/capital-link/cover.jpg" class="v-wide" alt="Capital Link - luxury booking platform preview" loading="lazy">
-      </div>
-    </article>
-
-    <article class="project" data-reveal data-screen-label="Project Landing Pages">
-      <a class="project-link" href="work-landing-pages.html" aria-label="Selected Landing Pages case study"></a>
-      <div class="project-num">04</div>
-      <div class="project-body">
-        <div class="project-top">
-          <h3 class="project-title">landing pages <span class="serif-note">selected</span></h3>
-          <div class="project-tags">
-            <span class="label">web</span>
-            <span class="label">conversion</span>
-            <span class="label" style="color: var(--accent)">2022–25</span>
-            <span class="wip-chip">more visuals being added</span>
-          </div>
-        </div>
-        <p class="project-desc">A collection of high-converting landing pages across fintech, SaaS, and lifestyle - fast turnarounds, sharp hierarchy, and measurable lift.</p>
-        <span class="go">&gt;&lt; view case</span>
-      </div>
-      <div class="project-visual">
-        <img src="assets/landing/cover.jpg" class="v-stack" alt="Selected landing pages - collection preview" loading="lazy">
-      </div>
-    </article>
-
-    <article class="project" data-reveal data-screen-label="Project Visual Archive">
-      <a class="project-link" href="work-visual-archive.html" aria-label="Visual Archive case study"></a>
-      <div class="project-num">05</div>
-      <div class="project-body">
-        <div class="project-top">
-          <h3 class="project-title">visual archive <span class="serif-note">posters &amp; logos</span></h3>
-          <div class="project-tags">
-            <span class="label">brand</span>
-            <span class="label">type</span>
-            <span class="label" style="color: var(--accent)">ongoing</span>
-            <span class="wip-chip">more visuals being added</span>
-          </div>
-        </div>
-        <p class="project-desc">An ongoing archive of poster studies, logo marks, and typographic experiments - the visual practice behind the client work.</p>
-        <span class="go">&gt;&lt; view case</span>
-      </div>
-      <div class="project-visual">
-        <img src="assets/visual-archive/cover.jpg" class="v-square" alt="Visual archive - posters, logos & graphic design preview" loading="lazy">
-      </div>
-    </article>
+  <section class="section" id="shots-section" data-screen-label="Shots">
+    <div class="section-head" data-reveal>
+      <h2 class="display">shots</h2>
+      <span class="serif-note">(from the work)</span>
+      <span class="label">assorted</span>
+    </div>
+    <div class="gv-mosaic" data-reveal>
+      <figure class="m-wide"><img src="assets/capital-link/09-desktop-screens.jpg" alt="Capital Link desktop screens" loading="lazy"></figure>
+      <figure class="m-tall"><img src="assets/recruitflow/06-ui-screens.jpg" alt="RcruitFlow UI screens" loading="lazy"></figure>
+      <figure class="m-sm"><img src="assets/tictaps/cover.jpg" alt="TicTaps" loading="lazy"></figure>
+      <figure class="m-box"><img src="assets/landing/dubai/ui.jpg" alt="Dubai Prime landing" loading="lazy"></figure>
+      <figure class="m-box"><img src="assets/logofolio/tictaps-brand.jpg" alt="TicTaps brand" loading="lazy"></figure>
+      <figure class="m-tall"><img src="assets/capital-link/12-phones-stone.jpg" alt="Capital Link mobile" loading="lazy"></figure>
+      <figure class="m-wide"><img src="assets/recruitflow/02-branding.jpg" alt="RcruitFlow branding" loading="lazy"></figure>
+      <figure class="m-box"><img src="assets/landing/milaure/ui.jpg" alt="MILAURE landing" loading="lazy"></figure>
+      <figure class="m-box"><img src="assets/posters/poster-05.jpg" alt="Poster study" loading="lazy"></figure>
+      <figure class="m-sm"><img src="assets/logofolio/gweilo.jpg" alt="Logofolio mark" loading="lazy"></figure>
+      <figure class="m-box"><img src="assets/tictaps/app-store.jpg" alt="TicTaps app store" loading="lazy"></figure>
+      <figure class="m-wide"><img src="assets/capital-link/08-homepage.jpg" alt="Capital Link homepage" loading="lazy"></figure>
+    </div>
   </section>
 
   <section class="section" data-screen-label="About teaser">
@@ -402,8 +493,32 @@ instagram - @aleeeksanndraa</div>
 
 <div class="grain"></div>
 
+<script>
+/* intro loader: reveal hero once the page (and the spinning head) is ready */
+(function () {
+  var MIN = 900; // let the head spin at least this long
+  var start = Date.now();
+  function reveal() {
+    var wait = Math.max(0, MIN - (Date.now() - start));
+    setTimeout(function () {
+      document.body.classList.add('loaded');
+      var l = document.getElementById('loader');
+      if (l) { setTimeout(function () { l.remove(); }, 1000); }
+    }, wait);
+  }
+  if (document.readyState === 'complete') { reveal(); }
+  else { window.addEventListener('load', reveal); }
+  // safety net so the veil never sticks
+  setTimeout(function () { document.body.classList.add('loaded'); }, 4000);
+})();
+</script>
 <script src="image-slot.js"></script>
 <script src="shared.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
 <script>
 // liquid gradient - monopo-style flowing colour field; the cursor stirs it (hero only)
 (function () {

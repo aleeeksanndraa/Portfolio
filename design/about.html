@@ -25,7 +25,7 @@
   .about-intro {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(26px, 3.4vw, 50px);
+    font-size: clamp(24px, 3vw, 40px);
     line-height: 1.15;
     letter-spacing: -0.01em;
     max-width: 22ch;
@@ -62,7 +62,7 @@
   .stat b {
     display: block;
     font-family: var(--display); font-weight: 900;
-    font-size: clamp(36px, 4.6vw, 72px);
+    font-size: clamp(40px, 4.6vw, 72px);
     line-height: 1;
     letter-spacing: -0.02em;
   }
@@ -85,15 +85,15 @@
   }
   .philo-item:last-child { border-bottom: 1px solid var(--line); }
   .philo-num {
-    font-family: var(--mono); font-size: 13px; color: var(--accent);
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
   }
   .philo-item h3 {
     font-family: var(--display); font-weight: 900;
-    font-size: clamp(22px, 2.6vw, 38px);
+    font-size: clamp(20px, 2.4vw, 28px);
     letter-spacing: -0.015em; line-height: 1;
     text-transform: lowercase;
   }
-  .philo-item p { color: var(--muted); font-size: 15.5px; max-width: 54ch; }
+  .philo-item p { color: var(--muted); font-size: 12px; line-height: 1.6; max-width: 54ch; }
   @media (max-width: 860px) {
     .philo-item { grid-template-columns: 1fr; gap: 10px; }
   }
@@ -111,15 +111,15 @@
   }
   .xp-row:last-child { border-bottom: 1px solid var(--line); }
   .xp-row:hover { background: var(--bg-2); }
-  .xp-when { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .xp-when { font-family: var(--mono); font-size: 12px; color: var(--muted); }
   .xp-who h3 {
     font-family: var(--display); font-weight: 900;
-    font-size: clamp(20px, 2.3vw, 32px);
+    font-size: clamp(20px, 2.3vw, 28px);
     letter-spacing: -0.015em; line-height: 1.05;
     text-transform: lowercase;
   }
-  .xp-who .serif-note { color: var(--accent); font-size: 15px; }
-  .xp-what { color: var(--muted); font-size: 14.5px; max-width: 58ch; }
+  .xp-who .serif-note { color: var(--accent); font-size: 12px; }
+  .xp-what { color: var(--muted); font-size: 12px; line-height: 1.6; max-width: 58ch; }
   @media (max-width: 860px) {
     .xp-row { grid-template-columns: 1fr; gap: 8px; }
   }
@@ -132,7 +132,7 @@
     align-items: baseline;
   }
   .recog-row:last-child { border-bottom: 1px solid var(--line); }
-  .recog-row .serif-note { font-size: clamp(19px, 2vw, 28px); }
+  .recog-row .serif-note { font-size: clamp(16px, 1.6vw, 20px); }
   .recog-row .label { margin-left: auto; }
 
   /* cv download */

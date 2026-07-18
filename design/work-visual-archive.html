@@ -24,44 +24,55 @@
 <button class="nav-burger" type="button" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<header class="cs-hero" data-screen-label="Hero">
-  <div class="cs-hero-top" data-reveal>
-    <span>05 / selected works</span>
-    <span class="acc">posters · logos · merch</span>
-    <span>ongoing</span>
-    <a class="cs-hero-back" href="work.html">← all work</a>
-  </div>
-  <div data-reveal>
-    <h1 class="cs-hero-title">visual archive</h1>
-    <div class="cs-hero-sub">a curated archive</div>
-    <p class="cs-hero-lede">Posters, logos, printed objects and visual identity experiments - the more experimental side of my practice.</p>
-  </div>
-</header>
-<main>
+<section class="gv" data-screen-label="split layout">
+  <div class="gv-shell">
 
-  <section class="cs" id="intro" data-screen-label="intro">
-    <div class="cs-head" data-reveal>
-      <h2 class="cs-kicker">intro</h2>
-      <span class="label cs-tag">typography · composition · mood · identity</span>
-    </div>
-    <div data-reveal><div class="cs-cols"><p class="cs-lede">Typography, composition, mood and <em>identity.</em></p><div><p class="cs-prose">A curated archive of visual work across posters, logo explorations, printed objects and brand experiments.</p><p class="cs-prose">This section collects smaller visual projects that focus on typography, composition, mood, identity and social-first design.</p></div></div></div>
+    <!-- FIXED LEFT PANEL -->
+    <aside class="gv-panel" data-screen-label="fixed info panel">
+      <a class="gv-back" href="work.html">← all work</a>
+      <div id="gv-live">
+        <h1 class="gv-title" data-live-title>visual archive</h1>
+        <div class="gv-tagline" data-live-tag>a curated archive</div>
+        <p class="gv-intro" data-live-intro>A curated archive of posters, logos, printed objects and brand experiments.</p>
+        <div class="gv-meta" data-live-meta>05 / selected works · ongoing</div>
+        <div class="gv-block">
+          <dl class="cs-facts" data-live-facts>
+            <div class="cs-fact"><dt>focus</dt><dd>Typography · composition · identity</dd></div>
+            <div class="cs-fact"><dt>tools</dt><dd>Figma, Photoshop, Illustrator</dd></div>
+            <div class="cs-fact"><dt>status</dt><dd>Ongoing</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="gv-block">
+        <ul class="gv-idx">
+          <li><a href="#posters"><span class="n">01</span><span>posters</span><span class="yr">motion + print</span></a></li>
+          <li><a href="#logofolio"><span class="n">02</span><span>logofolio</span><span class="yr">14 marks</span></a></li>
+          <li><a href="#merch"><span class="n">03</span><span>applied graphics</span><span class="yr">tote</span></a></li>
+          <li><a href="#experiments"><span class="n">04</span><span>ai influencer</span><span class="yr">worldbuilding</span></a></li>
+        </ul>
+      </div>
+
+      <a class="gv-panel-next" href="work-tictaps.html">
+        <span class="label">next - 01 / app redesign</span>
+        <span class="t">tictaps →</span>
+      </a>
+    </aside>
+
+    <!-- SCROLLING RIGHT COLUMN -->
+    <div class="gv-stream" data-screen-label="scrolling archive">
+
+  <section class="cs gv-hl" id="intro" data-proj="archive" data-screen-label="intro">
+    <div data-reveal><div class="cs-cols"><p class="cs-lede">The more <em>experimental</em> side of my practice.</p><p class="cs-prose">A curated archive of visual work across posters, logo explorations, printed objects and brand experiments - smaller projects focused on typography, composition, mood, identity and social-first design.</p></div></div>
   </section>
 
-  <section class="cs" id="categories" data-screen-label="categories">
-    <div class="cs-head" data-reveal>
-      <h2 class="cs-kicker">categories</h2>
-      <span class="label cs-tag">four sections</span>
-    </div>
-    <div data-reveal><div class="cs-steps"><div class="cs-step"><span class="n">01</span><h4>Posters</h4><p>Event visuals, campaign posters and social-first compositions.</p></div><div class="cs-step"><span class="n">02</span><h4>Logofolio</h4><p>Logo marks, wordmarks and identity explorations.</p></div><div class="cs-step"><span class="n">03</span><h4>Applied Graphics</h4><p>Printed-object design and applied visual identity.</p></div><div class="cs-step"><span class="n">04</span><h4>AI Influencer Experiment</h4><p>An AI-generated singer, her jewelry world and audience reaction.</p></div></div></div>
-  </section>
-
-  <section class="cs" id="posters" data-screen-label="posters">
+  <section class="cs" id="posters" data-proj="posters" data-screen-label="posters">
     <div class="cs-head cs-head--posters" data-reveal>
       <span class="cs-num">01</span>
       <h2 class="cs-kicker">posters</h2>
       <span class="label cs-tag">event posters · campaign visuals · social-first</span>
     </div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">Immediate attention, clear <em>composition.</em></p><div><p class="cs-prose">A selection of poster and campaign visuals exploring typography, rhythm, contrast and mood. These works focus on creating immediate attention while keeping the composition clear and visually memorable.</p></div></div></div>
+    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">Immediate attention, clear <em>composition.</em></p><p class="cs-prose">A selection of poster and campaign visuals exploring typography, rhythm, contrast and mood. These works focus on creating immediate attention while keeping the composition clear and visually memorable.</p></div></div>
     <div data-reveal class="mq-hint">drag to scroll</div>
     <div data-reveal><div class="pf-rows">
       <div class="mq" data-dir="1"><div class="mq-track"><div class="mq-set"><figure class="pf-cell"><video src="assets/posters/denji.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-01.jpg" alt="poster 1" loading="lazy"></figure><figure class="pf-cell"><video src="assets/posters/motion-05.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-08.jpg" alt="poster 8" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-09.jpg" alt="poster 9" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-11.jpg" alt="poster 11" loading="lazy"></figure><figure class="pf-cell"><video src="assets/posters/motion-09.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-10.jpg" alt="poster 10" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-14.jpg" alt="poster 14" loading="lazy"></figure></div><div class="mq-set" aria-hidden="true"><figure class="pf-cell"><video src="assets/posters/denji.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-01.jpg" alt="" loading="lazy"></figure><figure class="pf-cell"><video src="assets/posters/motion-05.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-08.jpg" alt="" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-09.jpg" alt="" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-11.jpg" alt="" loading="lazy"></figure><figure class="pf-cell"><video src="assets/posters/motion-09.mp4" autoplay muted loop playsinline aria-hidden="true"></video></figure><figure class="pf-cell"><img src="assets/posters/poster-10.jpg" alt="" loading="lazy"></figure><figure class="pf-cell"><img src="assets/posters/poster-14.jpg" alt="" loading="lazy"></figure></div></div></div>
@@ -70,13 +81,13 @@
     </div></div>
   </section>
 
-  <section class="cs" id="logofolio" data-screen-label="logofolio">
+  <section class="cs" id="logofolio" data-proj="logofolio" data-screen-label="logofolio">
     <div class="cs-head cs-head--posters" data-reveal>
       <span class="cs-num">02</span>
       <h2 class="cs-kicker">logofolio</h2>
       <span class="label cs-tag">logo marks · wordmarks · brand identity</span>
     </div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">Simple, flexible <em>identity.</em></p><div><p class="cs-prose">A collection of logo marks and wordmark explorations created across different brand directions. The focus is on simple, flexible identity elements that can work across digital and printed applications.</p></div></div></div>
+    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">Simple, flexible <em>identity.</em></p><p class="cs-prose">A collection of logo marks and wordmark explorations created across different brand directions. The focus is on simple, flexible identity elements that can work across digital and printed applications.</p></div></div>
     <div data-reveal class="mq-hint">drag to scroll</div>
     <div data-reveal><div class="mq" id="logofolio-mq" data-dir="1" data-arrange="logofolio-order-v2"><p class="pf-arrange-hint" aria-hidden="true">Drag to reorder · drop an image on a tile to replace · saved in your browser</p><div class="mq-track">
       <div class="mq-set mq-set--src">
@@ -114,18 +125,18 @@
     </div></div></div>
   </section>
 
-  <section class="cs" id="merch" data-screen-label="applied graphics">
+  <section class="cs" id="merch" data-proj="merch" data-screen-label="applied graphics">
     <div class="cs-head" data-reveal>
       <span class="cs-num">03</span>
       <h2 class="cs-kicker">applied graphics</h2>
       <span class="label cs-tag">istituto marangoni · 2026</span>
     </div>
 
-    <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><div class="cs-cols"><p class="cs-lede">From difference <em>comes design.</em></p><div><p class="cs-prose">A design proposal for the Istituto Marangoni tote bag, academic year 2026–27 - a globally distributed object that carries the institution's identity across its international campuses.</p><p class="cs-prose">The concept translates Marangoni's global presence into one minimal visual system: a single continuous line connecting the creative capitals where its campuses live.</p></div></div></div>
+    <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><div class="cs-cols"><p class="cs-lede">From difference <em>comes design.</em></p><p class="cs-prose">A design proposal for the Istituto Marangoni tote bag, academic year 2026–27 - a globally distributed object that carries the institution's identity across its international campuses.</p><p class="cs-prose">The concept translates Marangoni's global presence into one minimal visual system: a single continuous line connecting the creative capitals where its campuses live.</p></div></div>
 
     <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><p class="merch-cities">Milano<span class="sep">—</span>Firenze<span class="sep">—</span>Paris<span class="sep">—</span>London<span class="sep">—</span>Dubai<span class="sep">—</span>Riyadh<span class="sep">—</span>Shanghai<span class="sep">—</span>Shenzhen<span class="sep">—</span>Mumbai<span class="sep">—</span>Miami</p></div>
 
-    <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><div class="cs-cols"><p class="cs-flow">One <em>→</em> continuous <em>→</em> line</p><div><p class="cs-prose">The idea began as a single hand sketch - one stroke shaping multiple landmarks while holding balance and clarity. It reflects connection, continuity and the flow of ideas across cultures, echoing Istituto Marangoni's expanding international network.</p></div></div></div>
+    <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><div class="cs-cols"><p class="cs-flow">One <em>→</em> continuous <em>→</em> line</p><p class="cs-prose">The idea began as a single hand sketch - one stroke shaping multiple landmarks while holding balance and clarity. It reflects connection, continuity and the flow of ideas across cultures, echoing Istituto Marangoni's expanding international network.</p></div></div>
 
     <div data-reveal class="mq-hint">drag to scroll</div>
     <div data-reveal style="margin-bottom:clamp(32px,4.4vw,64px)"><div class="mq" data-dir="1"><div class="mq-track">
@@ -149,35 +160,33 @@
       <div class="cs-stat"><span class="big">10</span><span class="cap">global cities - one per Marangoni campus</span></div>
       <div class="cs-stat"><span class="big">1</span><span class="cap">continuous line forming the whole composition</span></div>
       <div class="cs-stat"><span class="big">26×30</span><span class="cap">defined print area, cm - optimised for the bag</span></div>
-      <div class="cs-stat"><span class="big">1‑colour</span><span class="cap">screen print - white on black cotton</span></div>
+      <div class="cs-stat"><span class="big">1-colour</span><span class="cap">screen print - white on black cotton</span></div>
     </div></div>
   </section>
 
-  <section class="cs" id="experiments" data-screen-label="ai influencer experiment">
+  <section class="cs" id="experiments" data-proj="experiments" data-screen-label="ai influencer experiment">
     <div class="cs-head" data-reveal>
       <span class="cs-num">04</span>
       <h2 class="cs-kicker">ai influencer experiment</h2>
       <span class="label cs-tag">erro_0rr · Angel404Shop · AI character worldbuilding</span>
     </div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">An AI-made singer, influencer and her own <em>jewelry world.</em></p><div><p class="cs-prose">erro_0rr was an AI-made singer and influencer created as an experiment in digital identity, AI-generated content and audience reaction. The project explored how people respond when an artificial character is presented as a full online persona - with music, videos, social media presence and a connected jewelry shop.</p><p class="cs-prose" style="margin-top:1em">Angel404Shop extended erro_0rr's world into a product direction, selling jewelry in her style through a darker, more cinematic identity. The project included character visuals, song promotion, jewelry imagery, Instagram feed direction and a website for the shop.</p></div></div></div>
-    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="label">visual focus</p><div><p class="cs-prose">Character world&nbsp;·&nbsp;jewelry identity&nbsp;·&nbsp;social media direction&nbsp;·&nbsp;audience reaction</p></div></div></div>
-    <div data-reveal><p class="wip-note">visual archive update in progress</p><div class="cs-gal"><div class="cs-gal-row"><image-slot id="va-ai-char" class="cs-half" shape="rect" placeholder="erro_0rr - character visual"></image-slot><image-slot id="va-ai-jewel" class="cs-half" shape="rect" placeholder="Angel404Shop - jewelry imagery"></image-slot></div><div class="cs-gal-row"><image-slot id="va-ai-ig" class="cs-half" shape="rect" placeholder="Instagram feed direction"></image-slot><image-slot id="va-ai-web" class="cs-half" shape="rect" placeholder="Angel404Shop - website"></image-slot></div></div></div>
+    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="cs-lede">An AI-made singer, influencer and her own <em>jewelry world.</em></p><p class="cs-prose">erro_0rr was an AI-made singer and influencer created as an experiment in digital identity, AI-generated content and audience reaction. The project explored how people respond when an artificial character is presented as a full online persona - with music, videos, social media presence and a connected jewelry shop.</p><p class="cs-prose" style="margin-top:1em">Angel404Shop extended erro_0rr's world into a product direction, selling jewelry in her style through a darker, more cinematic identity. The project included character visuals, song promotion, jewelry imagery, Instagram feed direction and a website for the shop.</p></div></div>
+    <div data-reveal style="margin-bottom:clamp(28px,4vw,52px)"><div class="cs-cols"><p class="label">visual focus</p><p class="cs-prose">Character world&nbsp;·&nbsp;jewelry identity&nbsp;·&nbsp;social media direction&nbsp;·&nbsp;audience reaction</p></div></div>
+    <div data-reveal><p class="wip-note">visual archive update in progress</p><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><div class="gv-media r-wide"><image-slot id="va-ai-char" shape="rect" placeholder="erro_0rr - character visual"></image-slot></div><div class="gv-media r-wide"><image-slot id="va-ai-jewel" shape="rect" placeholder="Angel404Shop - jewelry imagery"></image-slot></div><div class="gv-media r-wide"><image-slot id="va-ai-ig" shape="rect" placeholder="Instagram feed direction"></image-slot></div><div class="gv-media r-wide"><image-slot id="va-ai-web" shape="rect" placeholder="Angel404Shop - website"></image-slot></div></div></div>
     <div data-reveal style="margin-top:clamp(28px,4vw,52px)"><p class="cs-reflect">This project helped me explore AI as a way to build a complete digital world - with a character, product, music, social presence and audience response.</p></div>
   </section>
 
-  <section class="cs" id="closing" data-screen-label="closing note">
+  <section class="cs" id="closing" data-proj="archive" data-screen-label="closing note">
     <div class="cs-head" data-reveal>
       <h2 class="cs-kicker">closing note</h2>
       <span class="label cs-tag">experimental practice · ongoing</span>
     </div>
     <div data-reveal><div class="cs-cols"><p class="cs-lede">The more <em>experimental</em> side of my practice.</p><div><p class="cs-reflect">The visual archive shows a more experimental side of my practice - where I explore mood, typography, identity and composition outside of full product case studies.</p></div></div></div>
   </section>
-</main>
+    </div>
+  </div>
+</section>
 
-  <a class="cs-next" href="work-tictaps.html" data-reveal data-screen-label="Next project">
-    <span class="label">next - 01 / app redesign</span>
-    <span class="cs-next-title">tictaps</span>
-  </a>
 <footer class="footer" id="contact" data-screen-label="Contact">
   <div data-reveal>
     <div class="label" style="margin-bottom: 18px">have a project in mind<span class="acc">?</span></div>
@@ -513,5 +522,15 @@
   document.querySelectorAll('.mq[data-arrange]').forEach(initArrange);
 })();
 </script>
+<script>
+window.PANEL_STATES = {
+  archive: { title: "visual archive", tag: "a curated archive", meta: "05 / selected works \u00b7 ongoing", intro: "A curated archive of posters, logos, printed objects and brand experiments.", facts: [["focus","Typography \u00b7 composition \u00b7 identity"],["tools","Figma, Photoshop, Illustrator"],["status","Ongoing"]] },
+  posters: { title: "posters", tag: "event \u00b7 campaign \u00b7 social", meta: "01 / posters", intro: "Immediate attention, clear composition.", facts: [["focus","Typography \u00b7 rhythm \u00b7 contrast"],["format","Motion + print"],["status","Ongoing"]] },
+  logofolio: { title: "logofolio", tag: "marks &amp; wordmarks", meta: "02 / logofolio", intro: "Simple, flexible identity across brand directions.", facts: [["focus","Logo marks \u00b7 wordmarks"],["count","14 identities"],["tools","Figma, Illustrator"]] },
+  merch: { title: "applied graphics", tag: "istituto marangoni tote", meta: "03 / applied graphics \u00b7 2026", intro: "From difference comes design \u2014 one continuous line across 10 campus cities.", facts: [["object","Tote bag"],["print","1-colour screen print"],["cities","10 global campuses"]] },
+  experiments: { title: "ai influencer", tag: "erro_0rr \u00b7 Angel404Shop", meta: "04 / experiment", intro: "An AI-made singer, influencer and her own jewelry world.", facts: [["focus","Character \u00b7 jewelry \u00b7 social"],["type","AI worldbuilding"],["status","In progress"]] }
+};
+</script>
+<script src="panel-spy.js"></script>
 </body>
 </html>

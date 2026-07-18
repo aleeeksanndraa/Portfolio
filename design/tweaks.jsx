@@ -3,18 +3,22 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accent": "#c4b0ff",
   "grain": false,
   "motion": true,
-  "hero_theme": "indigo"
+  "hero_theme": "indigo",
+  "shots": true
 }/*EDITMODE-END*/;
 
 function TweaksApp() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  const hasShots = typeof document !== 'undefined' && !!document.getElementById('shots-section');
 
   React.useEffect(() => {
     document.documentElement.style.setProperty('--accent', t.accent);
     document.body.setAttribute('data-grain', t.grain ? 'on' : 'off');
     document.body.setAttribute('data-motion', t.motion ? 'on' : 'off');
     document.body.setAttribute('data-hero-theme', t.hero_theme);
-  }, [t.accent, t.grain, t.motion, t.hero_theme]);
+    document.body.setAttribute('data-shots', t.shots ? 'on' : 'off');
+  }, [t.accent, t.grain, t.motion, t.hero_theme, t.shots]);
 
   return (
     <TweaksPanel>
@@ -30,6 +34,13 @@ function TweaksApp() {
         onChange={(v) => setTweak('grain', v)}></TweakToggle>
       <TweakToggle label="Scroll animations" value={t.motion}
         onChange={(v) => setTweak('motion', v)}></TweakToggle>
+      {hasShots ? (
+        <React.Fragment>
+          <TweakSection label="Sections"></TweakSection>
+          <TweakToggle label="Work shots grid" value={t.shots}
+            onChange={(v) => setTweak('shots', v)}></TweakToggle>
+        </React.Fragment>
+      ) : null}
     </TweaksPanel>
   );
 }
