@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=1">
+<link rel="stylesheet" href="../styles.css?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +26,7 @@
     "https://www.instagram.com/aleeeksanndraa/",
     "https://www.tiktok.com/@aleeeksanndra",
     "https://www.youtube.com/@aleeeksanndra",
-    "https://ru.pinterest.com/aleeeksanndraa/"
+    "https://uk.pinterest.com/aleeeksanndraa/"
   ]
 }
 </script>
@@ -74,10 +74,10 @@
   .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(14,13,18,0.55) 0%, rgba(14,13,18,0.15) 40%, rgba(14,13,18,0.85) 100%); }
   .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(56px,12vh,120px); padding-top: calc(var(--nav-h) + 40px); }
   .hero-tag { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
-  .hero-h1 { font-weight: 900; letter-spacing: -0.035em; line-height: 0.92; font-size: clamp(48px,9vw,132px); text-transform: lowercase; margin-top: 18px; }
-  .hero-sub { font-family: var(--serif); font-style: italic; font-size: clamp(18px,2.4vw,28px); color: rgba(237,234,242,0.86); margin-top: 20px; max-width: 30ch; line-height: 1.35; text-wrap: pretty; }
+  .hero-h1 { font-weight: 900; letter-spacing: -0.02em; line-height: 0.92; font-size: clamp(48px,9vw,132px); text-transform: uppercase; margin-top: 18px; }
+  .hero-sub { font-family: var(--display); font-style: normal; font-size: clamp(18px,2.4vw,28px); color: rgba(237,234,242,0.86); margin-top: 20px; max-width: 30ch; line-height: 1.4; text-wrap: pretty; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(28px,4vh,40px); }
-  .btn { font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; padding: 15px 26px; border-radius: 100px; border: 1px solid var(--line); transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .25s ease, border-color .25s ease, color .25s ease; display: inline-flex; align-items: center; gap: 9px; }
+  .btn { font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; padding: 15px 26px; border: 1px solid var(--line); transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .25s ease, border-color .25s ease, color .25s ease; display: inline-flex; align-items: center; gap: 9px; }
   .btn:hover { transform: translateY(-3px); }
   .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
   .btn-primary:hover { background: #d5c6ff; border-color: #d5c6ff; }
@@ -88,8 +88,7 @@
 
   /* ---------- SECTION SCAFFOLD ---------- */
   section.blk { padding: clamp(64px,11vh,140px) 0; }
-  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 12px; }
-  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
   .h2 { font-weight: 900; letter-spacing: -0.03em; line-height: 0.98; font-size: clamp(32px,5.4vw,68px); text-transform: lowercase; margin-top: 18px; }
   .lead { font-family: var(--serif); font-style: italic; font-size: clamp(20px,2.8vw,32px); line-height: 1.3; color: var(--ink); }
   .lead em { color: var(--accent); }
@@ -101,7 +100,7 @@
   @media (max-width: 820px) { .about { grid-template-columns: 1fr; } }
   .about-portrait { aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
   .about-portrait image-slot, .about-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .about-copy .h2 { margin-bottom: 24px; }
+  .about-copy .h2 { margin-bottom: 24px; text-transform: uppercase; }
 
   /* NICHES */
   .niches { display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; margin-top: clamp(32px,5vh,52px); }
@@ -109,36 +108,38 @@
   @media (max-width: 520px) { .niches { grid-template-columns: repeat(2,1fr); } }
   .niche { border: 1px solid var(--line); border-radius: 6px; aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; transition: transform .3s cubic-bezier(.2,.6,.2,1), border-color .3s ease, background .3s ease; overflow: hidden; position: relative; }
   .niche:hover { transform: translateY(-6px); border-color: var(--accent); background: rgba(196,176,255,0.06); }
-  .niche .nn { font-family: var(--mono); font-size: 11px; color: var(--accent); }
-  .niche .nt { font-weight: 900; text-transform: lowercase; letter-spacing: -0.01em; font-size: clamp(15px,1.5vw,19px); margin-top: 6px; }
+  .niche .nn { font-family: var(--mono); font-size: 11px; color: var(--accent); position: relative; z-index: 1; }
+  .niche .nt { font-weight: 900; text-transform: lowercase; letter-spacing: -0.01em; font-size: clamp(15px,1.5vw,19px); margin-top: 6px; position: relative; z-index: 1; }
+  .niche-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .niche-photo::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(14,13,18,0.05) 35%, rgba(14,13,18,0.92) 100%); }
+  .niche-photo .nt { color: #fff; }
+  .niche-photo:hover { background: none; }
 
   /* SERVICES */
-  .services { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin-top: clamp(32px,5vh,52px); background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  @media (max-width: 900px) { .services { grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 520px) { .services { grid-template-columns: 1fr; } }
-  .svc { background: var(--bg); padding: 24px 20px; min-height: 132px; display: flex; flex-direction: column; justify-content: space-between; transition: background .3s ease; }
-  .svc:hover { background: #15131b; }
-  .svc .sn { font-family: var(--mono); font-size: 12px; color: var(--accent); }
-  .svc h4 { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+  .services-wrap { display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.15fr); gap: clamp(28px,5vw,72px); align-items: start; margin-top: clamp(32px,5vh,52px); }
+  @media (max-width: 820px) { .services-wrap { grid-template-columns: 1fr; } }
+  .services-img { aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); position: sticky; top: calc(var(--nav-h) + 24px); }
+  .services-img image-slot, .services-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 820px) { .services-img { position: static; aspect-ratio: 16/10; } }
+  .services-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 clamp(10px,1.6vw,22px); }
+  @media (min-width: 821px) { .services-list { grid-template-columns: repeat(2, 1fr); } }
+  .svc { border-top: 1px solid var(--line); padding: 14px 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; transition: border-color .3s ease; }
+  .svc:hover { border-color: var(--accent); }
+  .svc .sn { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+  .svc h4 { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; line-height: 1.3; overflow-wrap: break-word; min-width: 0; }
 
   /* PORTFOLIO */
   .pf-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; }
   .pf-filters { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pf-filter { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 100px; padding: 8px 16px; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; background: none; text-transform: lowercase; }
+  .pf-filter { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); padding: 8px 16px; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; background: none; text-transform: lowercase; }
   .pf-filter:hover { color: var(--ink); border-color: var(--muted); }
   .pf-filter.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
-  .pf-grid { columns: 4; column-gap: 12px; margin-top: clamp(28px,4vh,44px); }
-  @media (max-width: 1000px) { .pf-grid { columns: 3; } }
-  @media (max-width: 720px) { .pf-grid { columns: 2; } }
-  @media (max-width: 460px) { .pf-grid { columns: 1; } }
-  .pf-item { break-inside: avoid; margin-bottom: 12px; border-radius: 7px; overflow: hidden; border: 1px solid var(--line); position: relative; cursor: pointer; background: #15131b; }
+  .pf-grid { position: relative; margin-top: clamp(28px,4vh,44px); }
+  .pf-item { position: absolute; top: 0; left: 0; border-radius: 7px; overflow: hidden; border: 1px solid var(--line); cursor: pointer; background: #15131b; transition: left .3s ease, top .3s ease, width .3s ease, height .3s ease; }
   .pf-item.hide { display: none; }
-  .pf-media { position: relative; overflow: hidden; }
-  .pf-media image-slot, .pf-media img, .pf-media video { width: 100%; display: block; object-fit: cover; }
-  .pf-item .pf-media { aspect-ratio: 9/16; }
-  .pf-item:nth-child(4n+1) .pf-media { aspect-ratio: 3/4; }
-  .pf-item:nth-child(6n+3) .pf-media { aspect-ratio: 1/1; }
-  .pf-media image-slot { height: 100%; }
+  .pf-media { position: relative; overflow: hidden; width: 100%; height: 100%; }
+  .pf-media image-slot, .pf-media img, .pf-media video, .pf-media iframe { width: 100%; height: 100%; display: block; object-fit: cover; border: 0; }
+  .pf-media iframe { pointer-events: none; }
   .pf-over { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; background: linear-gradient(180deg, transparent 45%, rgba(14,13,18,0.82)); opacity: 0; transition: opacity .3s ease; }
   .pf-item:hover .pf-over { opacity: 1; }
   .pf-over .cat { font-family: var(--mono); font-size: 11px; color: var(--accent); }
@@ -151,7 +152,7 @@
   .lb-inner { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: clamp(20px,3vw,40px); max-width: 1000px; width: 100%; max-height: 88vh; }
   @media (max-width: 760px) { .lb-inner { grid-template-columns: 1fr; overflow-y: auto; } }
   .lb-media { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #000; aspect-ratio: 9/16; max-height: 88vh; }
-  .lb-media image-slot, .lb-media video, .lb-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lb-media image-slot, .lb-media video, .lb-media img, .lb-media iframe { width: 100%; height: 100%; object-fit: cover; display: block; border: 0; }
   .lb-info { align-self: center; }
   .lb-info .cat { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
   .lb-info h3 { font-weight: 900; text-transform: lowercase; letter-spacing: -0.02em; font-size: clamp(26px,3vw,38px); margin: 12px 0; }
@@ -174,42 +175,53 @@
   .why-card p { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
 
   /* WORKFLOW */
-  .flow { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; margin-top: clamp(32px,5vh,52px); }
-  @media (max-width: 820px) { .flow { grid-auto-flow: row; grid-auto-columns: auto; } }
-  .flow-step { position: relative; padding: 24px 20px; border-top: 2px solid var(--line); transition: border-color .3s ease; }
-  .flow-step:hover { border-top-color: var(--accent); }
+  .flow { position: relative; display: grid; grid-template-columns: repeat(6,1fr); gap: clamp(12px,2vw,24px); margin-top: clamp(56px,8vh,84px); }
+  .flow::before { content: ""; position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: var(--line); }
+  @media (max-width: 820px) {
+    .flow { grid-template-columns: 1fr; gap: 0; margin-top: clamp(40px,6vh,56px); }
+    .flow::before { top: 0; bottom: 0; left: 5px; right: auto; width: 1px; height: auto; }
+  }
+  .flow-step { position: relative; padding-top: 32px; transition: transform .3s cubic-bezier(.2,.6,.2,1); }
+  .flow-step::before { content: ""; position: absolute; top: 0; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line); transition: border-color .3s ease, background .3s ease; }
+  .flow-step:hover { transform: translateY(-4px); }
+  .flow-step:hover::before { border-color: var(--accent); background: var(--accent); }
+  @media (max-width: 820px) {
+    .flow-step { padding: 0 0 32px 32px; }
+    .flow-step:hover { transform: none; }
+    .flow-step::before { top: 3px; left: 0; }
+    .flow-step:last-child { padding-bottom: 0; }
+  }
   .flow-step .fn { font-family: var(--mono); font-size: 12px; color: var(--accent); }
   .flow-step h4 { font-weight: 900; text-transform: lowercase; letter-spacing: -0.01em; font-size: clamp(18px,1.8vw,22px); margin: 10px 0 8px; }
   .flow-step p { color: var(--muted); font-size: 13px; line-height: 1.5; }
 
   /* REACH */
-  .reach { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(12px,2vw,28px); margin-top: clamp(32px,5vh,52px); }
-  @media (max-width: 720px) { .reach { grid-template-columns: repeat(2,1fr); } }
-  .reach-stat { border-top: 1px solid var(--line); padding-top: 18px; }
-  .reach-stat b { display: block; font-weight: 900; font-size: clamp(34px,4.4vw,62px); letter-spacing: -0.03em; line-height: 1; color: var(--accent); }
-  .reach-stat span { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 10px; }
-  .reach-top { margin-top: clamp(28px,4vh,44px); border: 1px solid var(--line); border-radius: 8px; padding: clamp(20px,3vw,32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-  .reach-top .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .reach-top .v { font-weight: 900; font-size: clamp(24px,3vw,36px); letter-spacing: -0.02em; color: var(--accent); margin-top: 6px; }
+  .reach-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(32px,5vh,52px); }
+  .reach-tab { font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em; color: var(--muted); border: 1px solid var(--line); padding: 10px 20px; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; background: none; text-transform: lowercase; display: inline-flex; align-items: center; gap: 8px; }
+  .reach-tab:hover { color: var(--ink); border-color: var(--muted); }
+  .reach-tab.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  .reach-panel { margin-top: clamp(28px,4vh,44px); border-top: 1px solid var(--line); padding-top: clamp(28px,4vh,44px); display: grid; grid-template-columns: auto 1fr; gap: clamp(32px,5vw,64px); }
+  .reach-panel:has(> .reach-headline:only-child) { grid-template-columns: auto; }
+  @media (max-width: 760px) { .reach-panel { grid-template-columns: 1fr; gap: 28px; } }
+  .reach-headline b { display: block; font-weight: 900; font-size: clamp(46px,6.4vw,84px); letter-spacing: -0.03em; line-height: 1; color: var(--accent); white-space: nowrap; }
+  .reach-headline span { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .reach-headline a { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-family: var(--mono); font-size: 12px; color: var(--muted); transition: color .2s ease; }
+  .reach-headline a:hover { color: var(--accent); }
+  .reach-stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(16px,2vw,24px); align-content: start; }
+  @media (max-width: 480px) { .reach-stats-grid { grid-template-columns: 1fr; } }
+  .reach-stats-grid .rs { border-top: 1px solid var(--line); padding-top: 14px; }
+  .reach-stats-grid .rs .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .reach-stats-grid .rs .v { font-weight: 900; font-size: clamp(19px,2.2vw,26px); letter-spacing: -0.02em; margin-top: 6px; }
+  .reach-stats-grid .rs .v.tbd { color: var(--muted); font-weight: 500; font-size: 13px; letter-spacing: 0; }
 
   /* BRANDS */
-  .brands { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-top: clamp(32px,5vh,52px); }
-  @media (max-width: 820px) { .brands { grid-template-columns: repeat(3,1fr); } }
-  @media (max-width: 480px) { .brands { grid-template-columns: repeat(2,1fr); } }
-  .brand-slot { aspect-ratio: 3/2; border: 1px dashed var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; color: var(--muted); filter: grayscale(1); transition: border-color .3s ease, color .3s ease; }
-  .brand-slot:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* TESTIMONIALS */
-  .tst { margin-top: clamp(32px,5vh,52px); }
-  .tst-track { display: flex; transition: transform .5s cubic-bezier(.2,.6,.2,1); }
-  .tst-slide { min-width: 100%; padding: clamp(8px,2vw,20px) 0; }
-  .tst-q { font-family: var(--serif); font-style: italic; font-size: clamp(22px,3.4vw,42px); line-height: 1.28; letter-spacing: -0.01em; max-width: 24ch; text-wrap: pretty; }
-  .tst-q .quote { color: var(--accent); }
-  .tst-by { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 22px; }
-  .tst-ctrl { display: flex; gap: 10px; margin-top: 28px; }
-  .tst-btn { width: 44px; height: 44px; border-radius: 100px; border: 1px solid var(--line); background: none; color: var(--ink); cursor: pointer; font-size: 16px; transition: border-color .2s ease, color .2s ease; }
-  .tst-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .tst-empty { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .brands { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 22px 0; margin-top: clamp(32px,5vh,52px); }
+  .brands-track { display: flex; width: max-content; animation: brandsmarquee 32s linear infinite; }
+  .brand-slot { font-family: var(--mono); font-size: 14px; letter-spacing: 0.02em; color: var(--muted); white-space: nowrap; padding-right: 40px; transition: color .3s ease; }
+  .brand-slot:hover { color: var(--accent); }
+  @keyframes brandsmarquee { to { transform: translateX(-50%); } }
+  body[data-motion="off"] .brands-track, .brands-track:hover { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { .brands-track { animation: none; } }
 
   /* FAQ */
   .faq { margin-top: clamp(28px,4vh,44px); max-width: 820px; }
@@ -254,7 +266,6 @@
 <nav class="nav">
   <a class="nav-logo" href="index.html"><img src="assets/logo-on-dark.svg" alt="aleksandra slahova - logo"></a>
   <div class="nav-links">
-    <a href="../index.html">aleeeksanndraa.com</a>
     <a href="#portfolio">portfolio</a>
     <a href="#services">services</a>
     <a href="#about">about</a>
@@ -289,9 +300,9 @@
 <!-- ABOUT -->
 <section class="blk" id="about">
   <div class="c-wrap about">
-    <div class="about-portrait rv"><image-slot id="about-portrait" shape="rect" placeholder="add your portrait"></image-slot></div>
+    <div class="about-portrait rv"><img src="assets/about-creator2.jpg" alt="Aleksandra Slahova - portrait"></div>
     <div class="about-copy">
-      <div class="eyebrow rv">about</div>
+      <div class="eyebrow rv">01 about</div>
       <h2 class="h2 rv">hi, i'm aleksandra.</h2>
       <p class="body rv">I'm a beauty content creator and UGC creator based in Amsterdam. I create premium short-form content focused on beauty, skincare, K-beauty, fashion, travel and lifestyle.</p>
       <p class="body rv">With a background in digital design, I combine aesthetic storytelling with high-quality visuals to create authentic content that brands can confidently use across social media, websites and advertising.</p>
@@ -302,15 +313,15 @@
 <!-- NICHES -->
 <section class="blk" style="padding-top:0;">
   <div class="c-wrap">
-    <div class="eyebrow rv">my niches</div>
+    <div class="eyebrow rv">02 my niches</div>
     <h2 class="h2 rv">what i create for.</h2>
     <div class="niches">
-      <div class="niche rv"><span class="nn">01</span><span class="nt">beauty</span></div>
-      <div class="niche rv"><span class="nn">02</span><span class="nt">skincare</span></div>
-      <div class="niche rv"><span class="nn">03</span><span class="nt">k-beauty</span></div>
-      <div class="niche rv"><span class="nn">04</span><span class="nt">fashion</span></div>
-      <div class="niche rv"><span class="nn">05</span><span class="nt">travel</span></div>
-      <div class="niche rv"><span class="nn">06</span><span class="nt">lifestyle</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/product-fwee-macro.jpg" alt="beauty content example"><span class="nn">01</span><span class="nt">beauty</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/niche-skincare.jpg" alt="skincare content example"><span class="nn">02</span><span class="nt">skincare</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/product-fwee-styled.jpg" alt="k-beauty content example"><span class="nn">03</span><span class="nt">k-beauty</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/niche-fashion.png" alt="fashion content example"><span class="nn">04</span><span class="nt">fashion</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/niche-travel.jpg" alt="travel content example"><span class="nn">05</span><span class="nt">travel</span></div>
+      <div class="niche niche-photo rv"><img class="niche-img" src="assets/niche-lifestyle.jpg" alt="lifestyle content example"><span class="nn">06</span><span class="nt">lifestyle</span></div>
     </div>
   </div>
 </section>
@@ -318,23 +329,26 @@
 <!-- SERVICES -->
 <section class="blk" id="services">
   <div class="c-wrap">
-    <div class="eyebrow rv">services</div>
+    <div class="eyebrow rv">03 services</div>
     <h2 class="h2 rv">everything, done for you.</h2>
-    <div class="services rv">
-      <div class="svc"><span class="sn">01</span><h4>organic ugc</h4></div>
-      <div class="svc"><span class="sn">02</span><h4>paid ads</h4></div>
-      <div class="svc"><span class="sn">03</span><h4>product reviews</h4></div>
-      <div class="svc"><span class="sn">04</span><h4>unboxing</h4></div>
-      <div class="svc"><span class="sn">05</span><h4>voice-over videos</h4></div>
-      <div class="svc"><span class="sn">06</span><h4>tutorials</h4></div>
-      <div class="svc"><span class="sn">07</span><h4>product photography</h4></div>
-      <div class="svc"><span class="sn">08</span><h4>lifestyle photography</h4></div>
-      <div class="svc"><span class="sn">09</span><h4>fashion content</h4></div>
-      <div class="svc"><span class="sn">10</span><h4>travel content</h4></div>
-      <div class="svc"><span class="sn">11</span><h4>video editing</h4></div>
-      <div class="svc"><span class="sn">12</span><h4>concept development</h4></div>
-      <div class="svc"><span class="sn">13</span><h4>raw footage</h4></div>
-      <div class="svc"><span class="sn">14</span><h4>hooks</h4></div>
+    <div class="services-wrap rv">
+      <div class="services-img"><img src="assets/services-photo-2.jpg" alt="beauty product flatlay"></div>
+      <div class="services-list">
+        <div class="svc"><span class="sn">01</span><h4>organic ugc</h4></div>
+        <div class="svc"><span class="sn">02</span><h4>paid ads</h4></div>
+        <div class="svc"><span class="sn">03</span><h4>product reviews</h4></div>
+        <div class="svc"><span class="sn">04</span><h4>unboxing</h4></div>
+        <div class="svc"><span class="sn">05</span><h4>voice-over videos</h4></div>
+        <div class="svc"><span class="sn">06</span><h4>tutorials</h4></div>
+        <div class="svc"><span class="sn">07</span><h4>product photography</h4></div>
+        <div class="svc"><span class="sn">08</span><h4>lifestyle photography</h4></div>
+        <div class="svc"><span class="sn">09</span><h4>fashion content</h4></div>
+        <div class="svc"><span class="sn">10</span><h4>travel content</h4></div>
+        <div class="svc"><span class="sn">11</span><h4>video editing</h4></div>
+        <div class="svc"><span class="sn">12</span><h4>concept development</h4></div>
+        <div class="svc"><span class="sn">13</span><h4>raw footage</h4></div>
+        <div class="svc"><span class="sn">14</span><h4>hooks</h4></div>
+      </div>
     </div>
   </div>
 </section>
@@ -344,15 +358,13 @@
   <div class="c-wrap">
     <div class="pf-head">
       <div>
-        <div class="eyebrow rv">portfolio</div>
+        <div class="eyebrow rv">04 portfolio</div>
         <h2 class="h2 rv">selected content.</h2>
       </div>
       <div class="pf-filters rv" id="pf-filters">
         <button class="pf-filter active" data-cat="all">all</button>
         <button class="pf-filter" data-cat="beauty">beauty</button>
-        <button class="pf-filter" data-cat="skincare">skincare</button>
         <button class="pf-filter" data-cat="k-beauty">k-beauty</button>
-        <button class="pf-filter" data-cat="fashion">fashion</button>
         <button class="pf-filter" data-cat="travel">travel</button>
         <button class="pf-filter" data-cat="lifestyle">lifestyle</button>
       </div>
@@ -364,7 +376,7 @@
 <!-- WHY -->
 <section class="blk">
   <div class="c-wrap">
-    <div class="eyebrow rv">why work with me</div>
+    <div class="eyebrow rv">05 why work with me</div>
     <h2 class="h2 rv">the difference.</h2>
     <div class="why">
       <div class="why-card rv"><span class="wn">01</span><h4>premium visual style</h4><p>A considered, editorial look that elevates your product and fits a premium brand feed.</p></div>
@@ -378,7 +390,7 @@
 <!-- WORKFLOW -->
 <section class="blk" style="padding-top:0;">
   <div class="c-wrap">
-    <div class="eyebrow rv">workflow</div>
+    <div class="eyebrow rv">06 workflow</div>
     <h2 class="h2 rv">how we work together.</h2>
     <div class="flow">
       <div class="flow-step rv"><span class="fn">01</span><h4>brief</h4><p>We align on goals, product, references and deliverables.</p></div>
@@ -394,16 +406,17 @@
 <!-- REACH -->
 <section class="blk">
   <div class="c-wrap">
-    <div class="eyebrow rv">creator reach</div>
+    <div class="eyebrow rv">07 creator reach</div>
     <h2 class="h2 rv">the numbers.</h2>
-    <div class="reach">
-      <div class="reach-stat rv"><b>25K+</b><span>instagram</span></div>
-      <div class="reach-stat rv"><b>10K+</b><span>tiktok</span></div>
-      <div class="reach-stat rv"><b>5K+</b><span>youtube</span></div>
-      <div class="reach-stat rv"><b>2–4M</b><span>monthly views</span></div>
+    <div class="reach-tabs rv" id="reach-tabs">
+      <button class="reach-tab active" data-platform="instagram">instagram</button>
+      <button class="reach-tab" data-platform="tiktok">tiktok</button>
+      <button class="reach-tab" data-platform="youtube">youtube</button>
+      <button class="reach-tab" data-platform="pinterest">pinterest</button>
     </div>
-    <div class="reach-top rv">
-      <div><div class="k">top performing video</div><div class="v">1.2M views · beauty</div></div>
+    <div class="reach-panel rv" id="reach-panel"><!-- filled by JS --></div>
+    <div class="reach-top rv" style="margin-top:clamp(28px,4vh,44px); border:1px solid var(--line); padding:clamp(20px,3vw,32px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+      <div><div class="k" style="font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);">want the full breakdown</div><div class="v" style="font-weight:900; font-size:clamp(20px,2.6vw,28px); letter-spacing:-0.02em; margin-top:6px;">request the media kit</div></div>
       <a class="btn btn-ghost" href="#contact">request full media kit</a>
     </div>
   </div>
@@ -412,45 +425,31 @@
 <!-- BRANDS -->
 <section class="blk" style="padding-top:0;">
   <div class="c-wrap">
-    <div class="eyebrow rv">brands</div>
+    <div class="eyebrow rv">08 brands</div>
     <h2 class="h2 rv">trusted by.</h2>
-    <div class="brands">
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">brand</div>
-      <div class="brand-slot rv">your brand</div>
-    </div>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="blk">
-  <div class="c-wrap">
-    <div class="eyebrow rv">testimonials</div>
-    <h2 class="h2 rv">kind words.</h2>
-    <div class="tst rv" id="tst">
-      <div style="overflow:hidden;">
-        <div class="tst-track" id="tst-track">
-          <div class="tst-slide">
-            <p class="tst-q"><span class="quote">"</span>Placeholder review - add a real client testimonial here. Aleksandra delivered polished, on-brand content ahead of schedule.<span class="quote">"</span></p>
-            <div class="tst-by">- brand name, role</div>
-          </div>
-          <div class="tst-slide">
-            <p class="tst-q"><span class="quote">"</span>Placeholder review - swap in a second testimonial. The content performed beyond our expectations.<span class="quote">"</span></p>
-            <div class="tst-by">- brand name, role</div>
-          </div>
-        </div>
-      </div>
-      <div class="tst-ctrl">
-        <button class="tst-btn" id="tst-prev" aria-label="Previous">←</button>
-        <button class="tst-btn" id="tst-next" aria-label="Next">→</button>
-      </div>
+  <div class="brands rv">
+    <div class="brands-track">
+      <div class="brand-slot">skin1004</div>
+      <div class="brand-slot">fwee</div>
+      <div class="brand-slot">mac cosmetics</div>
+      <div class="brand-slot">anua</div>
+      <div class="brand-slot">elf beauty</div>
+      <div class="brand-slot">skin1004</div>
+      <div class="brand-slot">fwee</div>
+      <div class="brand-slot">mac cosmetics</div>
+      <div class="brand-slot">anua</div>
+      <div class="brand-slot">elf beauty</div>
+      <div class="brand-slot">skin1004</div>
+      <div class="brand-slot">fwee</div>
+      <div class="brand-slot">mac cosmetics</div>
+      <div class="brand-slot">anua</div>
+      <div class="brand-slot">elf beauty</div>
+      <div class="brand-slot">skin1004</div>
+      <div class="brand-slot">fwee</div>
+      <div class="brand-slot">mac cosmetics</div>
+      <div class="brand-slot">anua</div>
+      <div class="brand-slot">elf beauty</div>
     </div>
   </div>
 </section>
@@ -458,7 +457,7 @@
 <!-- FAQ -->
 <section class="blk" style="padding-top:0;">
   <div class="c-wrap">
-    <div class="eyebrow rv">faq</div>
+    <div class="eyebrow rv">09 faq</div>
     <h2 class="h2 rv">good to know.</h2>
     <div class="faq rv" id="faq">
       <div class="faq-item"><button class="faq-q">Do you create paid ads?<span class="ico"></span></button><div class="faq-a"><p>Yes - I produce paid-ad-ready UGC with multiple hook variations, and offer usage rights and whitelisting (Spark Ads / Meta) for your campaigns.</p></div></div>
@@ -473,14 +472,14 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="c-wrap">
-    <div class="eyebrow rv" style="justify-content:center;">contact</div>
+    <div class="eyebrow rv" style="justify-content:center;">10 contact</div>
     <p class="lead rv">Let's create something <em>beautiful</em> together.</p>
     <a class="contact-mail rv" href="mailto:collab@aleeeksanndraa.com">collab<span class="at">@</span>aleeeksanndraa.com</a>
     <div class="contact-soc rv">
       <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="https://www.tiktok.com/@aleeeksanndra?lang=en-GB" target="_blank" rel="noopener">tiktok <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       <a href="https://www.youtube.com/@aleeeksanndra" target="_blank" rel="noopener">youtube <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-      <a href="https://ru.pinterest.com/aleeeksanndraa/" target="_blank" rel="noopener">pinterest <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://uk.pinterest.com/aleeeksanndraa/" target="_blank" rel="noopener">pinterest <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
     </div>
   </div>
 </section>
@@ -504,7 +503,7 @@
 <div class="lb" id="lb">
   <button class="lb-close" id="lb-close">close ✕</button>
   <div class="lb-inner">
-    <div class="lb-media"><image-slot id="lb-slot" shape="rect" placeholder="project video"></image-slot></div>
+    <div class="lb-media" id="lb-media"></div>
     <div class="lb-info">
       <div class="cat" id="lb-cat">beauty</div>
       <h3 id="lb-title">project title</h3>
@@ -544,29 +543,125 @@
     });
   }
 
+  /* ---- creator reach tabs ---- */
+  var SOCIAL = {
+    instagram: {
+      label: 'instagram', url: 'https://www.instagram.com/aleeeksanndraa/',
+      big: '2.8K', bigLabel: 'instagram followers', stats: []
+    },
+    tiktok: {
+      label: 'tiktok', url: 'https://www.tiktok.com/@aleeeksanndra',
+      big: '22.4K', bigLabel: 'tiktok followers', stats: []
+    },
+    youtube: {
+      label: 'youtube', url: 'https://www.youtube.com/@aleeeksanndra',
+      big: '218', bigLabel: 'youtube subscribers', stats: []
+    },
+    pinterest: {
+      label: 'pinterest', url: 'https://uk.pinterest.com/aleeeksanndraa/',
+      big: '503.4K', bigLabel: 'pinterest monthly views', stats: []
+    }
+  };
+  var reachPanel = document.getElementById('reach-panel');
+  var reachTabs = document.getElementById('reach-tabs');
+  function renderReach(platform) {
+    var d = SOCIAL[platform];
+    var statsHTML = d.stats.map(function (s) {
+      return '<div class="rs"><div class="k">' + s.k + '</div><div class="v' + (s.tbd ? ' tbd' : '') + '">' + s.v + '</div></div>';
+    }).join('');
+    reachPanel.innerHTML =
+      '<div class="reach-headline"><b>' + d.big + '</b><span>' + d.bigLabel + '</span>' +
+      '<a href="' + d.url + '" target="_blank" rel="noopener">view profile <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>' +
+      (statsHTML ? '<div class="reach-stats-grid">' + statsHTML + '</div>' : '');
+  }
+  if (reachTabs && reachPanel) {
+    renderReach('instagram');
+    reachTabs.addEventListener('click', function (e) {
+      var b = e.target.closest('.reach-tab'); if (!b) return;
+      reachTabs.querySelectorAll('.reach-tab').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      renderReach(b.getAttribute('data-platform'));
+    });
+  }
+
   /* ---- reveal ---- */
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
   document.querySelectorAll('.rv').forEach(function(el,i){ el.style.transitionDelay = (Math.min(i%3,2)*70)+'ms'; io.observe(el); });
   setTimeout(function(){ document.querySelectorAll('.hero .rv').forEach(function(el){ el.classList.add('in'); }); }, 100);
 
   /* ---- portfolio data + grid ---- */
-  var CATS = ['beauty','skincare','k-beauty','fashion','travel','lifestyle'];
-  var PROJECTS = [];
-  for (var i=1;i<=12;i++){
-    var cat = CATS[(i-1)%CATS.length];
-    PROJECTS.push({ id:i, cat:cat, title:cat+' project '+String(Math.ceil(i/CATS.length)),
-      desc:'Short-form '+cat+' content - replace this with the real project description.',
-      platforms:'Instagram · TikTok', services:'Organic UGC · Editing · Hooks' });
-  }
+  var PROJECTS = [
+    { id: 'hgPkaFZSG88', cat: 'beauty', title: 'these elf lip glosses worth the hype?', desc: 'Quick-hit ELF lip gloss review with honest first impressions and swatches.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: '3Y1I99uH-Yg', cat: 'beauty', title: 'quick everyday makeup', desc: 'A fast, aesthetic everyday makeup routine.', platforms: 'YouTube Shorts', services: 'Organic UGC · GRWM' },
+    { id: 'EJaNPOLoAYI', cat: 'beauty', title: 'some of my favorite affordable lip glosses', desc: 'Roundup of affordable ELF lip gloss favorites.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'bT4kwSnH58g', cat: 'k-beauty', title: 'fwee is definitely worth trying', desc: 'K-beauty lip product review and try-on for fwee.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'QJcwP60CyfY', cat: 'k-beauty', title: 'this might be my favorite red lip', desc: 'Fwee red lip product spotlight.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'I--GD4Uklx0', cat: 'k-beauty', title: 'the perfect everyday brown lip', desc: 'Everyday brown lip combo featuring fwee.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'w4XLT9fkX_A', cat: 'k-beauty', title: 'would you wear this shade?', desc: 'Purple makeup shade try-on for fwee.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'ma8fy8DoLYc', cat: 'k-beauty', title: 'finally trying the fwee lip products', desc: 'First impressions trying fwee lip products.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'GZL1YzsoRCs', cat: 'beauty', title: 'my everyday 5 minutes makeup', desc: 'A quick 5-minute everyday makeup routine.', platforms: 'YouTube Shorts', services: 'Organic UGC · GRWM' },
+    { id: '5gXCzaZb_so', cat: 'beauty', title: 'ysl powder... but there\'s one problem', desc: 'Honest take on the YSL powder foundation.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'bT_Nf_COYco', cat: 'beauty', title: 'vaseline lip therapy aesthetic', desc: 'Aesthetic spotlight on Vaseline Lip Therapy.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'uFjH2VaV8MA', cat: 'beauty', title: 'foundation close-ups that deserve more attention', desc: 'Close-up foundation application and finish.', platforms: 'YouTube Shorts', services: 'Organic UGC · Product Review' },
+    { id: 'SjV0i3jrJVI', cat: 'travel', title: 'amsterdam magic', desc: 'Aesthetic travel moment shot in Amsterdam.', platforms: 'YouTube Shorts', services: 'Organic UGC · Travel Content' },
+    { id: '7aHvN1mU6ZA', cat: 'lifestyle', title: 'how i style my hair with dyson airwrap', desc: 'Quick hair styling tutorial with the Dyson Airwrap.', platforms: 'YouTube Shorts', services: 'Organic UGC · Tutorial' }
+  ];
   var grid = document.getElementById('pf-grid');
-  PROJECTS.forEach(function(p){
+  var SPANS = [1,1,1,1,2];
+  PROJECTS.forEach(function(p, i){
     var el = document.createElement('div');
     el.className = 'pf-item'; el.setAttribute('data-cat', p.cat); el.setAttribute('data-id', p.id);
-    el.innerHTML = '<div class="pf-media"><image-slot id="pf-'+p.id+'" shape="rect" placeholder="'+p.cat+' - video '+p.id+'"></image-slot></div>'+
+    el.setAttribute('data-span', SPANS[i % SPANS.length]);
+    el.innerHTML = '<div class="pf-media" data-yt="'+p.id+'"><img src="https://i.ytimg.com/vi/'+p.id+'/hqdefault.jpg" alt="'+p.title+'" loading="lazy"></div>'+
       '<div class="pf-over"><span class="cat">'+p.cat+'</span><span class="ttl">'+p.title+'</span><span class="view">view project →</span></div>';
     el.addEventListener('click', function(){ openLB(p); });
     grid.appendChild(el);
   });
+
+  /* ---- autoplay muted previews only for tiles in view (avoids overloading YouTube with many concurrent embeds) ---- */
+  var pfPreviewIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var media = entry.target, id = media.getAttribute('data-yt');
+      if (entry.isIntersecting) {
+        if (!media.querySelector('iframe')) {
+          media.innerHTML = '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&modestbranding=1&playsinline=1&rel=0" title="" allow="autoplay; encrypted-media" loading="lazy"></iframe>';
+        }
+      } else {
+        media.innerHTML = '<img src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="" loading="lazy">';
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '400px 0px' });
+  grid.querySelectorAll('.pf-media').forEach(function(m){ pfPreviewIO.observe(m); });
+
+  /* ---- masonry layout: keeps every tile a true 9:16 box, no letterboxing ---- */
+  function layoutMasonry(){
+    var w = grid.clientWidth;
+    var cols = w > 1000 ? 4 : w > 720 ? 3 : w > 460 ? 2 : 1;
+    var gap = 12;
+    var colW = (w - gap * (cols - 1)) / cols;
+    var heights = new Array(cols).fill(0);
+    var items = Array.prototype.slice.call(grid.querySelectorAll('.pf-item:not(.hide)'));
+    items.forEach(function(el){
+      var span = Math.min(parseInt(el.getAttribute('data-span') || '1', 10), cols);
+      var best = 0, bestH = Infinity;
+      for (var c = 0; c <= cols - span; c++){
+        var h = 0;
+        for (var k = 0; k < span; k++) h = Math.max(h, heights[c + k]);
+        if (h < bestH){ bestH = h; best = c; }
+      }
+      var itemW = span * colW + (span - 1) * gap;
+      var itemH = itemW * (16 / 9);
+      el.style.width = itemW + 'px';
+      el.style.height = itemH + 'px';
+      el.style.left = (best * (colW + gap)) + 'px';
+      el.style.top = bestH + 'px';
+      for (var k2 = 0; k2 < span; k2++) heights[best + k2] = bestH + itemH + gap;
+    });
+    grid.style.height = (Math.max.apply(null, heights) - gap) + 'px';
+  }
+  layoutMasonry();
+  var pfResizeTimer;
+  window.addEventListener('resize', function(){ clearTimeout(pfResizeTimer); pfResizeTimer = setTimeout(layoutMasonry, 150); });
 
   /* ---- filters ---- */
   document.getElementById('pf-filters').addEventListener('click', function(e){
@@ -577,6 +672,7 @@
     grid.querySelectorAll('.pf-item').forEach(function(it){
       it.classList.toggle('hide', !(cat==='all' || it.getAttribute('data-cat')===cat));
     });
+    layoutMasonry();
   });
 
   /* ---- lightbox ---- */
@@ -587,20 +683,13 @@
     document.getElementById('lb-desc').textContent = p.desc;
     document.getElementById('lb-platforms').textContent = p.platforms;
     document.getElementById('lb-services').textContent = p.services;
-    document.getElementById('lb-slot').setAttribute('placeholder', p.cat+' - video '+p.id);
+    document.getElementById('lb-media').innerHTML = '<iframe src="https://www.youtube.com/embed/'+p.id+'?autoplay=1&rel=0" title="'+p.title+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     lb.classList.add('open'); document.body.classList.add('menu-open');
   }
-  function closeLB(){ lb.classList.remove('open'); document.body.classList.remove('menu-open'); }
+  function closeLB(){ lb.classList.remove('open'); document.body.classList.remove('menu-open'); document.getElementById('lb-media').innerHTML = ''; }
   document.getElementById('lb-close').addEventListener('click', closeLB);
   lb.addEventListener('click', function(e){ if(e.target===lb) closeLB(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeLB(); toggleMenu(false); } });
-
-  /* ---- testimonials carousel ---- */
-  var track = document.getElementById('tst-track'), idx = 0;
-  var slides = track ? track.children.length : 0;
-  function go(n){ idx = (n+slides)%slides; track.style.transform = 'translateX('+(-idx*100)+'%)'; }
-  var pv = document.getElementById('tst-prev'), nx = document.getElementById('tst-next');
-  if(pv&&nx){ pv.addEventListener('click', function(){ go(idx-1); }); nx.addEventListener('click', function(){ go(idx+1); }); }
 
   /* ---- faq ---- */
   document.getElementById('faq').addEventListener('click', function(e){

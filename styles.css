@@ -201,21 +201,6 @@ img { display: block; max-width: 100%; }
 .ga-da { grid-area: da; }
 .ga-db { grid-area: db; }
 .hub-desc { font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.4; text-align: left; }
-@media (max-width: 520px) {
-  .hub-logo { width: 30px; top: 18px; left: clamp(18px, 5vw, 24px); }
-  .hub-year { top: 20px; right: clamp(18px, 5vw, 24px); }
-
-  .wrap { justify-content: flex-start; align-items: center; text-align: center; padding-top: 52vh; }
-  .hub-links { grid-template-columns: 1fr; grid-template-areas: "ca" "da" "cb" "db"; gap: 6px 0; max-width: 520px; }
-  .hub-card { margin-top: 14px; }
-  .ga-ca { margin-top: 0; }
-  .hub-desc { margin-bottom: 4px; }
-  .hub-bottom { flex-direction: column; align-items: center; gap: 18px; }
-  .hub-soc { flex-direction: column; width: 100%; max-width: 520px; justify-content: center; }
-  .hub-soc a { width: 100%; padding: 14px 18px; }
-  .hub-soc a span { display: inline; }
-  .hub-foot { align-self: center; }
-}
 .hub-card {
   position: relative;
   border: 1px solid rgba(196, 176, 255, 0.28);
@@ -316,6 +301,9 @@ img { display: block; max-width: 100%; }
 .hub-soc a:hover { color: var(--accent); border-color: var(--accent); background: rgba(196, 176, 255, 0.12); transform: translateY(-2px); }
 .hub-soc svg { width: 19px; height: 19px; display: block; flex: 0 0 auto; }
 
+/* hub-only: no burger/mobile-dropdown - the two big cards already cover nav */
+body.hub-page .nav-burger { display: none; }
+
 .hub-mail {
   display: inline-block;
   font-weight: 900;
@@ -363,4 +351,18 @@ body.ready .hub-year { opacity: 1; transition: opacity .7s ease .4s; }
   font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--muted);
+}
+
+/* ---------- hub mobile overrides (kept last so they win the cascade) ---------- */
+@media (max-width: 520px) {
+  .wrap { justify-content: flex-start; align-items: center; text-align: center; padding-top: 52vh; }
+  .hub-links { grid-template-columns: 1fr; grid-template-areas: "ca" "da" "cb" "db"; gap: 6px 0; max-width: 520px; }
+  .hub-card { margin-top: 14px; }
+  .ga-ca { margin-top: 0; }
+  .hub-desc { margin-bottom: 4px; }
+  .hub-bottom { flex-direction: column; align-items: center; gap: 18px; }
+  .hub-soc { flex-direction: column; width: 100%; max-width: 520px; justify-content: center; }
+  .hub-soc a { width: 100%; padding: 14px 18px; }
+  .hub-soc a span { display: inline; }
+  .hub-foot { align-self: center; margin-left: 0; }
 }
