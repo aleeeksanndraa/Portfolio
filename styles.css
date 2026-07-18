@@ -33,12 +33,111 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   min-height: 100svh;
+  /* JS-computed fallback for in-app browsers (e.g. Instagram) that miscalculate svh */
+  min-height: calc(var(--vh, 1svh) * 100);
   display: flex;
   flex-direction: column;
 }
 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
+
+/* ---------- nav (shared style across hub / design / creator) ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  padding: 22px clamp(20px, 3.5vw, 56px);
+  mix-blend-mode: normal;
+}
+.nav::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(14, 13, 18, 0.92), rgba(14, 13, 18, 0));
+  pointer-events: none;
+}
+.nav > * { position: relative; }
+.nav-logo {
+  font-family: var(--display);
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.nav-logo img {
+  width: 28px; height: 28px;
+  display: block;
+}
+.nav-logo sup { font-size: 0.5em; color: var(--accent); }
+.nav-links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex; gap: clamp(14px, 2.2vw, 32px);
+  font-family: var(--mono);
+  font-size: 13px;
+  text-transform: lowercase;
+}
+.nav-links a {
+  color: var(--muted);
+  transition: color 160ms ease;
+  position: relative;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="page"] { color: var(--accent); }
+.nav-links a[aria-current="page"]::before { content: "> "; }
+.nav-links a[aria-current="page"]::after { content: " <"; }
+.nav-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.nav-burger {
+  display: none;
+  width: 44px; height: 44px;
+  background: none;
+  border: 1px solid var(--line);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.nav-burger span {
+  display: block;
+  width: 18px; height: 1.5px;
+  background: var(--ink);
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.nav.open .nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav.open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav.open .nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+@media (max-width: 860px) {
+  .nav-meta { display: none; }
+  .nav-burger { display: flex; }
+  .nav-links {
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    transform: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 0 10px;
+    background: var(--menu-bg, #131017);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .nav.open .nav-links { display: flex; }
+  .nav-links a {
+    padding: 14px clamp(20px, 3.5vw, 56px);
+    font-size: 15px;
+  }
+}
+
+/* inline SVG arrow icon - replaces the ↗ unicode glyph everywhere so nothing
+   ever gets swapped for a platform emoji glyph (seen in Instagram's in-app browser) */
+.i-arr { display: inline-block; vertical-align: -0.08em; }
 
 .wrap {
   flex: 1;

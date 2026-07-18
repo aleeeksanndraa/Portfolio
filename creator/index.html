@@ -68,7 +68,7 @@
   body.menu-open { overflow: hidden; }
 
   /* ---------- HERO ---------- */
-  .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero { position: relative; min-height: 100svh; min-height: calc(var(--vh, 1svh) * 100); display: flex; align-items: flex-end; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; z-index: 0; }
   .hero-bg image-slot, .hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(14,13,18,0.55) 0%, rgba(14,13,18,0.15) 40%, rgba(14,13,18,0.85) 100%); }
@@ -251,35 +251,18 @@
 <body>
 
 <!-- NAV -->
-<nav class="cnav" id="cnav">
-  <div class="c-wrap">
-    <a class="cnav-logo" href="#top">aleksandra<b>.</b></a>
-    <div class="cnav-links">
-      <a href="#portfolio">portfolio</a>
-      <a href="#services">services</a>
-      <a href="#about">about</a>
-      <a href="#contact">contact</a>
-      <a class="cnav-ig" href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"></rect><circle cx="12" cy="12" r="4.4"></circle><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"></circle></svg>
-      </a>
-    </div>
-    <button class="cnav-burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="nav">
+  <a class="nav-logo" href="index.html"><img src="assets/logo-on-dark.svg" alt="aleksandra slahova - logo"></a>
+  <div class="nav-links">
+    <a href="../index.html">aleeeksanndraa.com</a>
+    <a href="#portfolio">portfolio</a>
+    <a href="#services">services</a>
+    <a href="#about">about</a>
+    <a href="#contact">contact</a>
   </div>
+  <div class="nav-meta">amsterdam, nl - 52.37°n</div>
+<button class="nav-burger" type="button" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="cmenu" id="cmenu">
-  <a href="#portfolio">portfolio</a>
-  <a href="#services">services</a>
-  <a href="#about">about</a>
-  <a href="#contact">contact</a>
-  <div class="cmenu-soc">
-    <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram</a>
-    <a href="https://www.tiktok.com/@aleeeksanndra?lang=en-GB" target="_blank" rel="noopener">tiktok</a>
-    <a href="https://www.youtube.com/@aleeeksanndra" target="_blank" rel="noopener">youtube</a>
-    <a href="https://ru.pinterest.com/aleeeksanndraa/" target="_blank" rel="noopener">pinterest</a>
-  </div>
-</div>
 
 <span id="top"></span>
 
@@ -494,10 +477,10 @@
     <p class="lead rv">Let's create something <em>beautiful</em> together.</p>
     <a class="contact-mail rv" href="mailto:collab@aleeeksanndraa.com">collab<span class="at">@</span>aleeeksanndraa.com</a>
     <div class="contact-soc rv">
-      <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram ↗</a>
-      <a href="https://www.tiktok.com/@aleeeksanndra?lang=en-GB" target="_blank" rel="noopener">tiktok ↗</a>
-      <a href="https://www.youtube.com/@aleeeksanndra" target="_blank" rel="noopener">youtube ↗</a>
-      <a href="https://ru.pinterest.com/aleeeksanndraa/" target="_blank" rel="noopener">pinterest ↗</a>
+      <a href="https://www.instagram.com/aleeeksanndraa/" target="_blank" rel="noopener">instagram <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://www.tiktok.com/@aleeeksanndra?lang=en-GB" target="_blank" rel="noopener">tiktok <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://www.youtube.com/@aleeeksanndra" target="_blank" rel="noopener">youtube <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://ru.pinterest.com/aleeeksanndraa/" target="_blank" rel="noopener">pinterest <svg class="i-arr" viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
     </div>
   </div>
 </section>
@@ -537,20 +520,29 @@
 <script src="image-slot.js"></script>
 <script>
 (function () {
-  /* ---- nav scroll state ---- */
-  var nav = document.getElementById('cnav');
-  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 20); }
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-
-  /* ---- mobile menu ---- */
-  var burger = document.getElementById('burger'), menu = document.getElementById('cmenu');
-  function toggleMenu(open){
-    menu.classList.toggle('open', open);
-    document.body.classList.toggle('menu-open', open);
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  /* ---- viewport-height fallback for in-app browsers that miscompute svh ---- */
+  function setVH() {
+    var vv = window.visualViewport;
+    var h = vv ? vv.height : window.innerHeight;
+    document.documentElement.style.setProperty('--vh', (h * 0.01) + 'px');
   }
-  burger.addEventListener('click', function(){ toggleMenu(!menu.classList.contains('open')); });
-  menu.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(){ toggleMenu(false); }); });
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', setVH);
+
+  /* ---- mobile burger menu (shared nav) ---- */
+  var nav = document.querySelector('.nav');
+  var burger = document.querySelector('.nav-burger');
+  if (nav && burger) {
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(nav.querySelectorAll('.nav-links a'), function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
+    });
+  }
 
   /* ---- reveal ---- */
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
